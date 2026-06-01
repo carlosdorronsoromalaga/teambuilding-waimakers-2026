@@ -908,13 +908,10 @@ const CONFIG = {
   /* ─────────────────────────────────────────────────────────────
      MM — datos del análisis táctico
   ───────────────────────────────────────────────────────────── */
-  mm: {
-    champion:     'Brazil',
-    championNote: 'Brazil llega con Vinicius Jr. en su mejor momento. El Affinity Index del ataque brasileño es el más alto del torneo (92/99). Dorival Júnior ha corregido los problemas defensivos que lastraron ediciones anteriores.',
-    darkHorse:    'Norway',
-    darkHorseNote:'Haaland + Ødegaard en 2026. La combinación más letal no clasificada como favorita. Si conectan el sistema, pueden llegar a semis.',
-  }
 };
+
+const db = supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.key);
+const ADMIN_PWD = CONFIG.admin.password;
 
 function applyConfig(){
   // ── Color de marca ──────────────────────────────────────────────
@@ -1527,20 +1524,31 @@ async function deleteChat(id){
 }
 
 async function init(){
-  try{await Promise.all([loadParts(),loadRes(),loadAH(),loadDeadline(),loadPINs()]);updStats();popSelects();renderHomeLB();}
-  catch(e){console.error('init',e);}
+  const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('timeout')),10000));
+  try{
+    await Promise.race([
+      Promise.all([loadParts(),loadRes(),loadAH(),loadDeadline(),loadPINs()]),
+      timeout
+    ]);
+    updStats();popSelects();renderHomeLB();
+  }catch(e){
+    console.error('init error:',e);
+    if(e.message==='timeout')toast('Connection timeout — check your internet connection','err');
+  }
   hide('lo');
 }
-async function loadParts(){const{data}=await db.from('participants').select('name,email');PARTS={};(data||[]).forEach(r=>PARTS[r.name]=r.email||'');}
+async function loadParts(){try{const{data}=await db.from('participants').select('name,email');PARTS={};(data||[]).forEach(r=>PARTS[r.name]=r.email||'');}catch(e){PARTS={};console.error('loadParts',e);}}
 async function loadPINs(){try{const{data}=await db.from('results').select('pick').eq('match_id',9997).maybeSingle();PINS=data?.pick?JSON.parse(data.pick):{};}catch(e){PINS={};}}
 async function savePIN(email,pin){PINS[email]=pin;const pick=JSON.stringify(PINS);await db.from('results').upsert({match_id:9997,pick},{onConflict:'match_id'});}
 async function loadRes(){
-  const{data}=await db.from('results').select('*');RES={};
-  (data||[]).forEach(r=>{
-    if(r.home_score!=null&&r.away_score!=null){RES[r.match_id]={h:r.home_score,a:r.away_score};if(r.tiebreak)RES[r.match_id].tb=r.tiebreak;}
-    else if(r.pick){RES[r.match_id]={pick:r.pick};if(r.tiebreak)RES[r.match_id].tb=r.tiebreak;}
-  });
-  invalidateT3();
+  try{
+    const{data}=await db.from('results').select('*');RES={};
+    (data||[]).forEach(r=>{
+      if(r.home_score!=null&&r.away_score!=null){RES[r.match_id]={h:r.home_score,a:r.away_score};if(r.tiebreak)RES[r.match_id].tb=r.tiebreak;}
+      else if(r.pick){RES[r.match_id]={pick:r.pick};if(r.tiebreak)RES[r.match_id].tb=r.tiebreak;}
+    });
+    invalidateT3();
+  }catch(e){RES={};console.error('loadRes',e);}
 }
 async function loadAH(){const{data}=await db.from('results').select('*').in('match_id',[1001,1002]);AH={};(data||[]).forEach(r=>{if(r.match_id===1001)AH.champion=r.pick;if(r.match_id===1002)AH.runnerup=r.pick;});}
 async function loadUP(name){
