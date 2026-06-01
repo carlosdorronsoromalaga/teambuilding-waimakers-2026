@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Porra Mundial 2026 — Powered by MaaliMetrics</title>
+<title>World Cup 2026 Predictor — WAIMAKERS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -588,7 +588,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
   <div id="mlist"></div>
   <div class="spanel" id="spanel">
     <h2>Save Your Prediction</h2>
-    <p>Guarda tu predicci&oacute;n completa. Podr&aacute;s editarla mientras la porra est&eacute; abierta.</p>
+    <p>Save your complete prediction. You can edit it while the competition is open.</p>
     <button class="sbtn" onclick="submit()" id="sbtn">&#128190; Save My Prediction</button>
     <div class="sstat" id="sstat"></div>
   </div>
@@ -866,7 +866,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 <script>
 /* ═══════════════════════════════════════════════════════════════
    CONFIG — PERSONALIZACIÓN POR EMPRESA
-   Cambia solo este bloque para adaptar la porra a cualquier cliente
+   Cambia solo este bloque para adaptar the competition a cualquier cliente
 ═══════════════════════════════════════════════════════════════ */
 const CONFIG = {
   brand: {
@@ -1060,8 +1060,8 @@ function updDeadlineUI(){
     const open=now<DEADLINE;
     if(st)st.textContent='Closes: '+DEADLINE.toLocaleDateString('en-GB',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'});
     if(ps){
-      if(open){ps.textContent='● Abierta — aceptando predicciones';ps.style.color='var(--green)';}
-      else{ps.textContent='⛔ Cerrada — no se aceptan más predicciones';ps.style.color='var(--red)';}
+      if(open){ps.textContent='● Open — accepting predictions';ps.style.color='var(--green)';}
+      else{ps.textContent='⛔ Closed — no more predictions accepted';ps.style.color='var(--red)';}
     }
   }
 }
@@ -1076,12 +1076,12 @@ async function saveDeadline(val){
   const d=new Date(val);DEADLINE=d;
   try{
     await db.from('results').upsert({match_id:9999,pick:d.toISOString(),home_score:null,away_score:null,tiebreak:null},{onConflict:'match_id'});
-    updDeadlineUI();toast('Fecha límite guardada','ok');
+    updDeadlineUI();toast('Deadline saved','ok');
   }catch(e){toast('Error: '+e.message,'err');}
 }
 
 async function deleteTestUsers(){
-  if(!confirm('¿Eliminar los usuarios TEST y sus predicciones?'))return;
+  if(!confirm('Delete TEST users and their predictions?'))return;
   try{
     const testNames=['Ana García','Carlos López','María Ruiz'];
     for(const name of testNames){
@@ -1241,7 +1241,7 @@ async function toggleBlockUser(emailOrName, block){
 }
 
 async function deleteUser(name, email){
-  if(!confirm('¿Eliminar a '+name+' y todas sus predicciones? Esta acción no se puede deshacer.'))return;
+  if(!confirm('Delete '+name+' and all their predictions? This cannot be undone.'))return;
   try{
     await db.from('predictions').delete().eq('participant_name',name);
     await db.from('participants').delete().eq('name',name);
@@ -1266,7 +1266,7 @@ function autoFillAndRefresh(){
   fillRandom();
   renderML();
   updProg();
-  toast('Predicciones generadas ✓','inf');
+  toast('Predictions generated ✓','inf');
 }
 
 
@@ -1628,7 +1628,7 @@ function fillRandom(){
 
 function popSelects(){
   const opts=ALL_TEAMS.map(t=>'<option value="'+esc(t)+'">'+esc(t)+'</option>').join('');
-  const base='<option value="">\u2014 Seleccionar \u2014</option>'+opts;
+  const base='<option value="">\u2014 Select \u2014</option>'+opts;
   ['achamp','asub'].forEach(id=>{const el=document.getElementById(id);if(el)el.innerHTML=base;});
   if(AH.champion){const el=document.getElementById('achamp');if(el)el.value=AH.champion;}
   if(AH.runnerup){const el=document.getElementById('asub');if(el)el.value=AH.runnerup;}
@@ -2031,8 +2031,8 @@ async function submit(){
   btn.disabled=true;btn.textContent='Saving...';
   try{
     stat.textContent='Saving...';await savePreds();
-    document.getElementById('spanel').innerHTML='<div style="text-align:center;padding:20px;color:#fff"><div style="font-size:48px;margin-bottom:12px">&#x2705;</div><h2 style="font-family:\'Bebas Neue\',sans-serif;font-size:32px;color:var(--or);letter-spacing:2px;margin-bottom:8px">&#xa1;Guardado!</h2><p style="opacity:.75;font-size:14px">Predicción guardada correctamente</p></div>';
-  }catch(e){console.error('submit',e);stat.textContent='Error: '+e.message;btn.disabled=false;btn.textContent='Guardar mi predicción';}
+    document.getElementById('spanel').innerHTML='<div style="text-align:center;padding:20px;color:#fff"><div style="font-size:48px;margin-bottom:12px">&#x2705;</div><h2 style="font-family:\'Bebas Neue\',sans-serif;font-size:32px;color:var(--or);letter-spacing:2px;margin-bottom:8px">Saved!</h2><p style="opacity:.75;font-size:14px">Your prediction has been saved</p></div>';
+  }catch(e){console.error('submit',e);stat.textContent='Error: '+e.message;btn.disabled=false;btn.textContent='Save My Prediction';}
 }
 
 
@@ -2168,7 +2168,7 @@ async function seedAdminResults(){
   catch(e){console.error('seed',e);toast('Error: '+e.message,'err');}
 }
 async function clearAllResults(){
-  if(!confirm('¿Eliminar todos los resultados (partidos 1-104)? La clasificación quedará a cero.'))return;
+  if(!confirm('¿Eliminar todos los resultados (partidos 1-104)? La leaderboard quedará a cero.'))return;
   try{
     const{error}=await db.from('results').delete().gte('match_id',1).lte('match_id',104);
     if(error)throw error;
