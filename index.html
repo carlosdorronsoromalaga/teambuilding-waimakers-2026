@@ -74,7 +74,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 /* ═══════════════════════════════
    HERO
 ═══════════════════════════════ */
-.hero{background:linear-gradient(135deg,#1a0800 0%,var(--or2) 40%,var(--or) 70%,#e87020 100%);border-radius:16px;padding:36px 30px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--s3)}
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e293b 40%,#111827 70%,#1e293b 100%);border-radius:16px;padding:36px 30px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--s3)}
 .hero::before{content:'26';position:absolute;right:-20px;bottom:-40px;font-family:'Bebas Neue',sans-serif;font-size:240px;opacity:.06;line-height:1;pointer-events:none;color:#fff}
 .hero-eye{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.7;margin-bottom:10px;font-weight:600}
 .hero-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,13vw,96px);line-height:.85;margin-bottom:12px;letter-spacing:3px}
@@ -343,7 +343,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .bmc{background:#ffffff;border:1px solid #e2e8f0;border-radius:7px;overflow:hidden;width:100%;transition:all .2s}
 .bmc:hover{border-color:#94a3b8}
 .bmc.bwon{border-color:rgba(252,75,8,.3);box-shadow:0 0 10px rgba(252,75,8,.07)}
-.bmc.bfinal{border:2px solid #fc4b08;box-shadow:0 0 30px rgba(252,75,8,.15),0 0 60px rgba(252,75,8,.06);background:linear-gradient(135deg,#fff7f4,#fff0ea)}
+.bmc.bfinal{border:2px solid var(--or);box-shadow:0 0 30px rgba(252,75,8,.15),0 0 60px rgba(252,75,8,.06);background:linear-gradient(135deg,#fff7f4,#fff0ea)}
 .bmc.bfinal .bteam{min-height:38px;padding:8px 11px}
 .bmc.bfinal .bfn{font-size:13px}
 .bmc.bfinal .bflag{font-size:16px;width:20px}
@@ -504,8 +504,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       <div style="height:28px;width:1px;background:rgba(255,255,255,.25)"></div>
     </div>
     <div id="hero-eye-el" class="hero-eye" style="margin-bottom:10px">COMPANY &middot; FIFA World Cup 2026 &middot; USA &middot; Mexico &middot; Canada</div>
-    <div class="hero-h">Mundial<br/>2026</div>
-    <div id="hero-sub-el" class="hero-sub">Predice los 104 partidos del Mundial FIFA 2026 y compite con tus compa&ntilde;eros</div>
+    <div class="hero-h">World Cup<br/>2026</div>
+    <div id="hero-sub-el" class="hero-sub">Predict all 104 FIFA World Cup 2026 matches and compete with your colleagues</div>
     <div class="hero-stats">
       <div class="hs"><div class="hs-n" id="sp">&#8212;</div><div class="hs-l">Players</div></div>
       <div class="hs"><div class="hs-n">104</div><div class="hs-l">Matches</div></div>
@@ -539,7 +539,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       <div class="how-step-num">3</div>
       <div class="how-step-icon">&#127942;</div>
       <div class="how-step-title">Compete</div>
-      <div class="how-step-desc">Sigue la clasificaci&#243;n en tiempo real durante los 40 d&#237;as del Mundial.</div>
+      <div class="how-step-desc">Follow the live leaderboard throughout all 40 days of the tournament.</div>
     </div>
   </div>
 
@@ -652,7 +652,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     </div>
     <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:var(--r-sm);padding:12px 14px">
       <div style="font-weight:700;font-size:12px;color:var(--mt);margin-bottom:5px">&#128270; Example: the &ldquo;reversed&rdquo; final</div>
-      <div style="font-size:12px;color:var(--mt);line-height:1.6">Pronosticas &ldquo;Spain vs Portugal&rdquo; en la final. Si el cuadro los pone en sentido inverso aparece &ldquo;Portugal vs Spain&rdquo; &mdash; es el mismo partido. Si Portugal gana, puntúas igual. Solo se da un problema si ambos quedan en el <em>mismo lado</em> del cuadro y se eliminan entre s&iacute; antes de la final &mdash; en ese caso simplemente no puntúas ese partido.</div>
+      <div style="font-size:12px;color:var(--mt);line-height:1.6">You predict &ldquo;Spain vs Portugal&rdquo; in the final. Si el cuadro los pone en sentido inverso aparece &ldquo;Portugal vs Spain&rdquo; &mdash; es el mismo partido. Si Portugal gana, puntúas igual. Solo se da un problema si ambos quedan en el <em>mismo lado</em> del cuadro y se eliminan entre s&iacute; antes de la final &mdash; en ese caso simplemente no puntúas ese partido.</div>
     </div>
   </div>
 
@@ -880,7 +880,7 @@ const CONFIG = {
     logoAlt:     'WAIMAKERS',
     logoHeight:  '30px',
     showLogo:    true,
-    color:       '#e8a500',
+    color:       '#111827',
   },
 
   pitch: {
@@ -905,10 +905,7 @@ const CONFIG = {
     chat: true,
   },
 
-  /* ─────────────────────────────────────────────────────────────
-     MM — datos del análisis táctico
-  ───────────────────────────────────────────────────────────── */
-};
+  };
 
 const db = supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.key);
 const ADMIN_PWD = CONFIG.admin.password;
@@ -1083,7 +1080,7 @@ async function saveDeadline(val){
 async function deleteTestUsers(){
   if(!confirm('Delete TEST users and their predictions?'))return;
   try{
-    const testNames=['Ana García','Carlos López','María Ruiz'];
+    const testNames=['Ana Garcia','Carlos Lopez','Maria Ruiz'];
     for(const name of testNames){
       await db.from('predictions').delete().eq('participant_name',name);
       await db.from('participants').delete().eq('name',name);
@@ -1109,7 +1106,7 @@ async function renderRankingView(){
     else if(r.pick)up[r.participant_name][r.match_id]={pick:r.pick,tb:r.tiebreak};
   });
 
-  const rows=Object.keys(PARTS).filter(n=>!['Ana García','Carlos López','María Ruiz'].includes(n)).map(name=>{
+  const rows=Object.keys(PARTS).filter(n=>!['Ana Garcia','Carlos Lopez','Maria Ruiz'].includes(n)).map(name=>{
     const sc=scoreUser(up[name]||{});
     const filled=Object.keys(up[name]||{}).filter(k=>+k<=104).length;
     return{name,sc,filled};
@@ -1137,30 +1134,30 @@ function showParticipantDetail(name, predsJSON){
   if(!detail)return;
 
   let h=`<div style="background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;box-shadow:var(--s1)">
-    <div style="background:var(--or);color:#fff;padding:12px 16px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px">Cuadro de ${esc(name)}</div>
+    <div style="background:var(--or);color:#fff;padding:12px 16px;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px">Bracket — ${esc(name)}</div>
     <div style="padding:16px">`;
 
   // Group standings — top 2 qualifiers + 3rd place info
-  h+=`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mt);margin-bottom:10px">Clasificados por grupo</div>`;
+  h+=`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mt);margin-bottom:10px">Qualified by group</div>`;
   h+=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:16px">`;
   for(const[g]of Object.entries(GROUPS)){
     const st=calcSt(g,preds);
     h+=`<div style="background:var(--sf2);border-radius:6px;padding:8px 10px;border:1px solid var(--bd)">`;
-    h+=`<div style="font-weight:700;font-size:11px;color:var(--or);margin-bottom:6px">Grupo ${g}</div>`;
+    h+=`<div style="font-weight:700;font-size:11px;color:var(--or);margin-bottom:6px">Group ${g}</div>`;
     [0,1].forEach(i=>{
       const t=st[i];if(!t)return;
-      h+=`<div style="font-size:11px;display:flex;align-items:center;gap:5px;margin-bottom:3px;background:rgba(252,75,8,.07);border-radius:4px;padding:3px 5px">${i===0?'1º':'2º'} ${fi(t.team)}<span style="font-weight:600">${esc(t.team)}</span></div>`;
+      h+=`<div style="font-size:11px;display:flex;align-items:center;gap:5px;margin-bottom:3px;background:rgba(252,75,8,.07);border-radius:4px;padding:3px 5px">${i===0?'1st':'2nd'} ${fi(t.team)}<span style="font-weight:600">${esc(t.team)}</span></div>`;
     });
     const third=st[2];
-    if(third)h+=`<div style="font-size:10px;display:flex;align-items:center;gap:4px;margin-top:3px;color:var(--mt);padding:2px 5px;border-top:1px solid var(--bd)">3º ${fi(third.team)}<span>${esc(third.team)}</span><span style="margin-left:auto">${third.pts}pts</span></div>`;
+    if(third)h+=`<div style="font-size:10px;display:flex;align-items:center;gap:4px;margin-top:3px;color:var(--mt);padding:2px 5px;border-top:1px solid var(--bd)">3rd ${fi(third.team)}<span>${esc(third.team)}</span><span style="margin-left:auto">${third.pts}pts</span></div>`;
     h+=`</div>`;
   }
   h+=`</div>`;
   const bt=getBT(preds);
-  h+=`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mt);margin-bottom:8px">Mejores terceros clasificados (top 8)</div>`;
+  h+=`<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mt);margin-bottom:8px">Best third-placed teams (top 8)</div>`;
   h+=`<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">`;
   bt.slice(0,8).forEach((t,i)=>{
-    h+=`<div style="display:flex;align-items:center;gap:5px;background:rgba(252,75,8,.06);border:1px solid rgba(252,75,8,.2);border-radius:20px;padding:4px 10px;font-size:11px"><span style="color:var(--or);font-weight:700">${i+1}</span> ${fi(t.team)}<span style="font-weight:600">${esc(t.team)}</span><span style="color:var(--mt);font-size:10px;margin-left:2px">Gr.${t.group}</span></div>`;
+    h+=`<div style="display:flex;align-items:center;gap:5px;background:rgba(252,75,8,.06);border:1px solid rgba(252,75,8,.2);border-radius:20px;padding:4px 10px;font-size:11px"><span style="color:var(--or);font-weight:700">${i+1}</span> ${fi(t.team)}<span style="font-weight:600">${esc(t.team)}</span><span style="color:var(--mt);font-size:10px;margin-left:2px">Gr ${t.group}</span></div>`;
   });
   h+=`</div>`;
   // Visual bracket
@@ -1201,7 +1198,7 @@ async function loadAdminUsers(){
 
     list.innerHTML=parts.map(p=>{
       const isBlocked=blocked.includes(p.email||p.name);
-      const isTest=['Ana García','Carlos López','María Ruiz'].includes(p.name);
+      const isTest=['Ana Garcia','Carlos Lopez','Maria Ruiz'].includes(p.name);
       const count=predCount[p.name]||0;
       const pct=Math.round(count/104*100);
       return `<div class="user-admin-row${isBlocked?' blocked':''}">
@@ -1211,9 +1208,9 @@ async function loadAdminUsers(){
             <div style="font-weight:600;font-size:13px;display:flex;align-items:center;gap:6px">
               ${esc(p.name)}
               ${isTest?'<span class="user-badge" style="background:rgba(29,78,216,.1);color:#1d4ed8">TEST</span>':''}
-              ${isBlocked?'<span class="user-badge badge-blocked">BLOQUEADO</span>':'<span class="user-badge badge-ok">Activo</span>'}
+              ${isBlocked?'<span class="user-badge badge-blocked">BLOQUEADO</span>':'<span class="user-badge badge-ok">Active</span>'}
             </div>
-            <div style="font-size:11px;color:var(--mt);margin-top:1px">${esc(p.email||'sin email')} · ${count}/104 partidos (${pct}%)</div>
+            <div style="font-size:11px;color:var(--mt);margin-top:1px">${esc(p.email||'no email')} · ${count}/104 matches (${pct}%)</div>
           </div>
         </div>
         <div style="display:flex;gap:6px;flex-shrink:0">
@@ -1516,7 +1513,7 @@ async function sendChat(){
 
 async function deleteChat(id){
   if(!adminOK)return;
-  if(!confirm('¿Eliminar este mensaje?'))return;
+  if(!confirm('Delete this message?'))return;
   const{error}=await db.from('chat_messages').delete().eq('id',id);
   if(error){toast('Error deleting: '+error.message,'err');return;}
   _chatMsgs=_chatMsgs.filter(m=>m.id!==id);
@@ -2121,7 +2118,7 @@ function renderBracket(){
     for(const[g]of Object.entries(GROUPS)){
       const st=calcSt(g,LP);
       const filled=GM.filter(m=>m.gr===g&&LP[m.id]&&LP[m.id].h!=null).length;
-      h+=`<div class="sc"><div class="sc-title" style="display:flex;align-items:center;justify-content:space-between"><span>Grupo ${g}</span><span style="font-size:10px;opacity:.7;font-weight:400">${filled}/6</span></div><table class="smt"><thead><tr><th>Selecci\u00f3n</th><th>Pts</th><th>GD</th></tr></thead><tbody>${st.map((t,i)=>`<tr class="${i===0?'q1':i===1?'q2':i===2?'q3':''}"><td>${fi(t.team)}<span style="font-weight:${i<2?'700':'400'}">${esc(t.team)}</span>${i===0?' 🥇':i===1?' 🥈':i===2?' 🥉':''}</td><td><strong>${t.pts}</strong></td><td style="color:${t.gd>0?'var(--green)':t.gd<0?'var(--red)':'var(--mt)'}">${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table></div>`;
+      h+=`<div class="sc"><div class="sc-title" style="display:flex;align-items:center;justify-content:space-between"><span>Group ${g}</span><span style="font-size:10px;opacity:.7;font-weight:400">${filled}/6</span></div><table class="smt"><thead><tr><th>Selecci\u00f3n</th><th>Pts</th><th>GD</th></tr></thead><tbody>${st.map((t,i)=>`<tr class="${i===0?'q1':i===1?'q2':i===2?'q3':''}"><td>${fi(t.team)}<span style="font-weight:${i<2?'700':'400'}">${esc(t.team)}</span>${i===0?' 🥇':i===1?' 🥈':i===2?' 🥉':''}</td><td><strong>${t.pts}</strong></td><td style="color:${t.gd>0?'var(--green)':t.gd<0?'var(--red)':'var(--mt)'}">${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table></div>`;
     }
     h+='</div>';
     const bt=getBT(LP);
@@ -2159,7 +2156,7 @@ function setAGrp(g){
 
 async function seedAdminResults(){
   const n=Object.keys(RES).filter(k=>+k<=104).length;
-  if(n>0&&!confirm('There are already '+n+' resultados. ¿Sobreescribir con datos aleatorios?'))return;
+  if(n>0&&!confirm('There are already '+n+' results. Overwrite with random data?'))return;
   toast('Generating random results...','inf');
   const rows=[];
   for(let id=1;id<=72;id++){const h=Math.floor(Math.random()*4),a=Math.floor(Math.random()*4);rows.push({match_id:id,home_score:h,away_score:a,pick:null,tiebreak:null});}
@@ -2168,7 +2165,7 @@ async function seedAdminResults(){
   catch(e){console.error('seed',e);toast('Error: '+e.message,'err');}
 }
 async function clearAllResults(){
-  if(!confirm('¿Eliminar todos los resultados (partidos 1-104)? La leaderboard quedará a cero.'))return;
+  if(!confirm('Delete all results (matches 1-104)? The leaderboard will reset to zero.'))return;
   try{
     const{error}=await db.from('results').delete().gte('match_id',1).lte('match_id',104);
     if(error)throw error;
@@ -2285,7 +2282,7 @@ init();
 <div class="pitch-bar" id="pitch-bar">
   <div class="pitch-bar-text">
     <strong id="pitch-bar-name">Carlos Dorronsoro</strong> &nbsp;·&nbsp; <span id="pitch-bar-role">AI Consultant &amp; Product Builder</span>
-    <span id="pitch-bar-msg">Construí esta herramienta para mi empresa en días. ¿Quieres algo así para la tuya?</span>
+    <span id="pitch-bar-msg">I built this for your team. This is how I work — fast, end-to-end, deployed. I'd love to bring this to WAIMAKERS.</span>
   </div>
   <div class="pitch-bar-btns">
     <a id="pitch-bar-li" href="#" target="_blank" rel="noopener" class="pitch-bar-btn li">&#128100; LinkedIn</a>
