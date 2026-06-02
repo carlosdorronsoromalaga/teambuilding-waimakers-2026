@@ -675,7 +675,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 </div>
 
 <div class="view" id="view-scoring">
-  <div class="bb" style="font-size:30px;color:var(--or);letter-spacing:2px;margin-bottom:4px">Sistema de Scoring</div>
+  <div class="bb" style="font-size:30px;color:var(--or);letter-spacing:2px;margin-bottom:4px">Scoring System</div>
   <div style="font-size:12px;color:var(--mt);margin-bottom:24px">How points are calculated in each phase of the tournament</div>
 
   <!-- HOW THE BRACKET WORKS -->
@@ -685,7 +685,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
       <div style="background:var(--orl);border:1px solid rgba(252,75,8,.2);border-radius:var(--r-sm);padding:12px">
         <div style="font-weight:700;font-size:12px;color:var(--or);margin-bottom:6px">&#127938; Round of 32</div>
-        <div style="font-size:12px;color:var(--tx)">Ej: <strong>2&ordm; Grupo A</strong> vs <strong>1&ordm; Grupo B</strong></div>
+        <div style="font-size:12px;color:var(--tx)">e.g. <strong>2nd Group A</strong> vs <strong>1st Group B</strong></div>
         <div style="font-size:11px;color:var(--mt);margin-top:4px">The match is played between whoever finishes 2nd in Group A and 1st in Group B, regardless of which team it is.</div>
       </div>
       <div style="background:var(--orl);border:1px solid rgba(252,75,8,.2);border-radius:var(--r-sm);padding:12px">
@@ -695,16 +695,16 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       </div>
     </div>
     <div style="background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.2);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:10px">
-      <div style="font-weight:700;font-size:12px;color:#dc2626;margin-bottom:5px">&#9888;&#65039; What if the match no se juega con los equipos que pronostiqué?</div>
+      <div style="font-weight:700;font-size:12px;color:#dc2626;margin-bottom:5px">&#9888;&#65039; What if the match isn't played with the teams I predicted?</div>
       <div style="font-size:12px;color:var(--tx);line-height:1.6">The match <em>always</em> takes place between whoever qualified for those positions. Your points depend on <strong>who wins that specific match</strong>, not which exact teams are in it.</div>
     </div>
     <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:var(--r-sm);padding:12px 14px">
       <div style="font-weight:700;font-size:12px;color:var(--mt);margin-bottom:5px">&#128270; Example: the &ldquo;reversed&rdquo; final</div>
-      <div style="font-size:12px;color:var(--mt);line-height:1.6">You predict &ldquo;Spain vs Portugal&rdquo; in the final. Si el cuadro los pone en sentido inverso aparece &ldquo;Portugal vs Spain&rdquo; &mdash; es el mismo partido. Si Portugal gana, puntúas igual. Solo se da un problema si ambos quedan en el <em>mismo lado</em> del cuadro y se eliminan entre s&iacute; antes de la final &mdash; en ese caso simplemente no puntúas ese partido.</div>
+      <div style="font-size:12px;color:var(--mt);line-height:1.6">You predict &ldquo;Spain vs Portugal&rdquo; in the final. If the bracket reverses it shows &ldquo;Portugal vs Spain&rdquo; &mdash; same match. If Portugal wins, you score the same. The only issue is if both end up on the <em>same side</em> of the bracket and eliminate each other before the final.</div>
     </div>
   </div>
 
-  <!-- GRUPOS -->
+  <!-- GROUP STAGE -->
   <div class="admin-section">
     <div class="admin-section-title">&#9679; Group Stage</div>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
@@ -729,7 +729,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
           <div class="pts-ex-card"><div class="pts-ex-label">Your prediction</div><div class="pts-ex-score">Spain <span class="n">2</span>&mdash;<span class="n">1</span> France</div></div>
           <div class="pts-ex-card"><div class="pts-ex-label">Actual result</div><div class="pts-ex-score">Spain <span class="ng">3</span>&mdash;<span class="ng">1</span> France</div></div>
         </div>
-        <div class="pts-tags"><span class="pts-tag ok">+2 ganador &#10003;</span><span class="pts-tag no">marcador diferente</span></div>
+        <div class="pts-tags"><span class="pts-tag ok">+2 winner &#10003;</span><span class="pts-tag no">wrong score</span></div>
       </div>
       <div class="pts-example" style="margin:0">
         <div class="pts-ex-title">&#9654; Exact score</div>
@@ -737,12 +737,12 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
           <div class="pts-ex-card"><div class="pts-ex-label">Your prediction</div><div class="pts-ex-score">Brazil <span class="n">2</span>&mdash;<span class="n">0</span> Argentina</div></div>
           <div class="pts-ex-card"><div class="pts-ex-label">Actual result</div><div class="pts-ex-score">Brazil <span class="ng">2</span>&mdash;<span class="ng">0</span> Argentina</div></div>
         </div>
-        <div class="pts-tags"><span class="pts-tag ok">+2 ganador &#10003;</span><span class="pts-tag ok">+2 exacto &#10003;</span></div>
+        <div class="pts-tags"><span class="pts-tag ok">+2 winner &#10003;</span><span class="pts-tag ok">+2 exact &#10003;</span></div>
       </div>
     </div>
   </div>
 
-  <!-- BONUS GRUPOS -->
+  <!-- GROUP BONUS -->
   <div class="admin-section">
     <div class="admin-section-title">&#11088; Group Qualification Bonus</div>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
@@ -757,9 +757,9 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     </div>
   </div>
 
-  <!-- ELIMINATORIAS -->
+  <!-- KNOCKOUT STAGE -->
   <div class="admin-section">
-    <div class="admin-section-title">&#9889; Fase Eliminatoria (Desde Round of 32)</div>
+    <div class="admin-section-title">&#9889; Knockout Stage (From Round of 32)</div>
     <div style="font-size:12px;color:var(--mt);margin-bottom:12px;line-height:1.5">In knockouts there can be a draw after 90' with qualification via penalties. The system rewards in layers: who advances, correct 1/X/2, and exact score.</div>
     <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--sf2);border-radius:var(--r-sm);border:1px solid var(--bd)">
@@ -771,7 +771,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--green)">+1 pt</div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--sf2);border-radius:var(--r-sm);border:1px solid var(--bd)">
-        <div><div style="font-weight:600;font-size:13px">Exact score</div><div style="font-size:11px;color:var(--mt);margin-top:2px">El resultado exacto en goles coincide</div></div>
+        <div><div style="font-weight:600;font-size:13px">Exact score</div><div style="font-size:11px;color:var(--mt);margin-top:2px">The exact goal-for-goal result matches</div></div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--green)">+3 pts</div>
       </div>
       <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--orl);border-radius:var(--r-sm);border:1px solid rgba(252,75,8,.2)">
@@ -787,7 +787,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
           <div class="pts-ex-card"><div class="pts-ex-label">Your prediction</div><div class="pts-ex-score">Portugal <span class="n">2</span>&mdash;<span class="n">1</span> Spain</div></div>
           <div class="pts-ex-card"><div class="pts-ex-label">Actual result</div><div class="pts-ex-score">Portugal <span class="ng">1</span>&mdash;<span class="ng">0</span> Spain</div></div>
         </div>
-        <div class="pts-tags"><span class="pts-tag ok">+2 pasa &#10003;</span><span class="pts-tag ok">+1 (1X2) &#10003;</span><span class="pts-tag no">marcador diferente</span></div>
+        <div class="pts-tags"><span class="pts-tag ok">+2 advance &#10003;</span><span class="pts-tag ok">+1 (1X2) &#10003;</span><span class="pts-tag no">wrong score</span></div>
       </div>
       <div class="pts-example" style="margin:0">
         <div class="pts-ex-title">&#9654; Draw + advances</div>
@@ -795,7 +795,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
           <div class="pts-ex-card"><div class="pts-ex-label">Your prediction</div><div class="pts-ex-score">France <span class="n">1</span>&mdash;<span class="n">1</span> Germany <small style="color:var(--or)">(Fra pen.)</small></div></div>
           <div class="pts-ex-card"><div class="pts-ex-label">Actual result</div><div class="pts-ex-score">France <span class="ng">1</span>&mdash;<span class="ng">1</span> Germany <small style="color:var(--green)">(Fra pen.)</small></div></div>
         </div>
-        <div class="pts-tags"><span class="pts-tag ok">+2 pasa &#10003;</span><span class="pts-tag ok">+1 (X) &#10003;</span><span class="pts-tag ok">+3 exacto &#10003;</span></div>
+        <div class="pts-tags"><span class="pts-tag ok">+2 advance &#10003;</span><span class="pts-tag ok">+1 (X) &#10003;</span><span class="pts-tag ok">+3 exact &#10003;</span></div>
       </div>
     </div>
   </div>
@@ -1031,7 +1031,7 @@ function renderPersonGrid(){
   grid.innerHTML = (CONFIG.team||[]).map(p => {
     const isTaken = registered.includes(p.name) && PARTS[p.name];
     const avatarHTML = p.photo
-      ? `<img src="${p.photo}" alt="${p.name.split(' ')[0]}" loading="lazy" onerror="this.parentElement.innerHTML='${p.initials}'"/>`
+      ? `<img src="${p.photo}" alt="${p.name.split(' ')[0]}" onerror="this.style.display='none'"/>`
       : p.initials;
     const sq = s => (s||'').replace(/'/g, "&#39;");
     const fn = `selectPerson('${sq(p.name)}','${sq(p.title)}','${sq(p.initials)}','${sq(p.photo||'')}')`;
@@ -1742,7 +1742,7 @@ async function init(){
       Promise.all([loadParts(),loadRes(),loadAH(),loadDeadline(),loadPINs()]),
       timeout
     ]);
-    updStats();popSelects();renderHomeLB();
+    updStats();popSelects();renderHomeLB();renderPersonGrid();
   }catch(e){
     console.error('init error:',e);
     if(e.message==='timeout')toast('Connection timeout — check your internet connection','err');
