@@ -455,6 +455,87 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .chat-locked{padding:14px 16px;text-align:center;font-size:13px;color:var(--mt);background:var(--sf2);border-top:1px solid var(--bd)}
 
 
+
+/* ═══════════════════════════════
+   ANALYSIS FEATURES
+═══════════════════════════════ */
+.ac-btn{background:var(--orb);border:1px solid rgba(249,115,22,.25);border-radius:6px;padding:4px 9px;font-size:10px;font-weight:700;color:var(--or);cursor:pointer;transition:all .2s;letter-spacing:.3px;font-family:'Outfit',sans-serif;white-space:nowrap;flex-shrink:0}
+.ac-btn:hover{background:var(--orl);border-color:var(--or)}
+.ac-btn.open{background:var(--or);color:#fff}
+.ac-corner{display:none;width:100%;margin-top:8px;background:linear-gradient(135deg,#1a0a00,#2d1500);border:1px solid rgba(249,115,22,.25);border-radius:10px;padding:14px 16px;animation:fadeIn .2s ease}
+.ac-corner.open{display:block}
+.ac-corner-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(249,115,22,.15)}
+.ac-corner-title{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--or)}
+.ac-teams-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.ac-team-block{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:10px 12px}
+.ac-team-name{font-size:11px;font-weight:700;color:#e2e8f0;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.ac-rating-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:4px}
+.ac-bar-wrap{background:rgba(255,255,255,.06);border-radius:4px;height:7px;overflow:hidden;margin-bottom:6px}
+.ac-bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.ac-bar-val{font-size:10px;font-weight:700;color:var(--or)}
+.ac-player-key{font-size:10px;color:rgba(255,255,255,.5);margin-top:4px}
+.ac-player-key strong{color:#e2e8f0}
+.ac-pick-row{background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.2);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.ac-pick-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(249,115,22,.7);flex-shrink:0}
+.ac-pick-val{font-size:12px;font-weight:700;color:#e2e8f0;flex:1}
+.ac-pick-prob{font-size:10px;color:var(--or);font-weight:600;flex-shrink:0}
+.ac-note{font-size:11px;color:rgba(255,255,255,.45);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.team-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:800;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+.team-modal{background:#120800;border:1px solid rgba(249,115,22,.3);border-radius:16px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:fadeIn .2s ease}
+.team-modal::-webkit-scrollbar{width:4px}
+.team-modal::-webkit-scrollbar-thumb{background:rgba(249,115,22,.3);border-radius:4px}
+.tm-head{background:linear-gradient(135deg,#1a0a00,#2d1500);padding:24px;display:flex;align-items:flex-start;gap:16px;border-bottom:1px solid rgba(249,115,22,.15)}
+.tm-info{flex:1;min-width:0}
+.tm-name{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;letter-spacing:2px;line-height:1;margin-bottom:6px}
+.tm-tier{display:inline-flex;align-items:center;gap:5px;border-radius:4px;padding:3px 9px;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.tm-coach{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:2px}
+.tm-formation{font-size:12px;font-weight:700;color:var(--or)}
+.tm-close{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:rgba(255,255,255,.6);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;transition:all .2s}
+.tm-close:hover{background:rgba(220,38,38,.2);color:#fff}
+.tm-body{padding:20px}
+.tm-section{margin-bottom:16px}
+.tm-section-title{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(249,115,22,.7);margin-bottom:8px}
+.tm-style{font-size:12px;color:rgba(255,255,255,.65);line-height:1.6;background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;border:1px solid rgba(255,255,255,.06)}
+.tm-players{display:flex;flex-wrap:wrap;gap:6px}
+.tm-player{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:600;color:#e2e8f0}
+.tm-history{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6}
+.tm-note{font-size:11px;color:rgba(255,255,255,.5);line-height:1.7;background:rgba(249,115,22,.05);border:1px solid rgba(249,115,22,.15);border-radius:8px;padding:12px}
+.tier-section{margin-bottom:24px}
+.tier-section-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1.5px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.tier-section-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.tier-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:8px}
+.tier-card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:12px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.tier-card:hover{transform:translateY(-2px);box-shadow:var(--s2)}
+.tier-card-flag{width:36px;height:27px;object-fit:cover;border-radius:4px;border:1px solid rgba(0,0,0,.08)}
+.tier-card-name{font-size:11px;font-weight:700;color:var(--tx)}
+.tier-card-rating{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--or)}
+.tier-card-badge{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:2px 7px}
+.group-analysis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:24px}
+.group-analysis-card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:14px;transition:box-shadow .2s}
+.group-analysis-card:hover{box-shadow:var(--s2)}
+.ga-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.ga-group{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--or);letter-spacing:1px}
+.ga-danger{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:2px 7px}
+.ga-danger.alto{background:rgba(220,38,38,.1);color:#dc2626;border:1px solid rgba(220,38,38,.2)}
+.ga-danger.medio{background:rgba(245,158,11,.1);color:#b45309;border:1px solid rgba(245,158,11,.2)}
+.ga-danger.bajo{background:rgba(22,163,74,.1);color:var(--green);border:1px solid rgba(22,163,74,.2)}
+.ga-teams{display:flex;flex-direction:column;gap:4px}
+.ga-team-row{display:flex;align-items:center;gap:6px;font-size:11px;cursor:pointer;border-radius:4px;padding:2px 4px;transition:background .15s}
+.ga-team-row:hover{background:var(--sf2)}
+.ga-team-name{flex:1;color:var(--tx2);font-weight:500}
+.ga-team-rating{font-size:10px;font-weight:700;color:var(--or)}
+.pick-champion{background:linear-gradient(135deg,#1a0a00,#2d1500);border:2px solid var(--or);border-radius:14px;padding:20px 24px;margin-bottom:20px;text-align:center}
+.pick-champion-label{font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--or);margin-bottom:8px}
+.pick-champion-team{font-family:'Bebas Neue',sans-serif;font-size:40px;letter-spacing:2px;color:#fff;margin-bottom:4px}
+.pick-champion-note{font-size:12px;color:rgba(255,255,255,.5);line-height:1.6}
+.atab-hero{background:linear-gradient(135deg,#1a0a00 0%,#2d1500 60%,#1a0a00 100%);border-radius:16px;padding:28px 24px;margin-bottom:20px;color:#fff;position:relative;overflow:hidden;border:1px solid rgba(249,115,22,.2)}
+.atab-hero::before{content:'26';position:absolute;right:-20px;bottom:-40px;font-family:'Bebas Neue',sans-serif;font-size:240px;opacity:.04;line-height:1;pointer-events:none;color:#fff}
+.atab-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,56px);line-height:.9;letter-spacing:2px;margin-bottom:10px;color:#fff}
+.atab-sub{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+.tbar{background:linear-gradient(135deg,#0f172a,#1e2a4a);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:4px}
+.tbar-label{color:#94a3b8;font-size:12px}
+.tbar-label strong{color:#e2e8f0}
+
 /* ═══════════════════════════════
    PITCH BAR
 ═══════════════════════════════ */
@@ -489,6 +570,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       <button class="nb" onclick="sv('ranking')" id="nav-ranking">Leaderboard</button>
       <button class="nb" onclick="sv('scoring')" id="nav-scoring">Scoring</button>
       <button class="nb" onclick="sv('chat')" id="nav-chat">Chat</button>
+      <button class="nb" onclick="sv('analysis')" id="nav-analysis" style="color:var(--or)">📊 Analysis</button>
       <button class="nb" onclick="sv('admin')" id="nav-admin">Admin</button>
     </nav>
   </div>
@@ -647,7 +729,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       </div>
     </div>
     <div style="background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.2);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:10px">
-      <div style="font-weight:700;font-size:12px;color:#dc2626;margin-bottom:5px">&#9888;&#65039; &iquest;Y si el partido no se juega con los equipos que pronostiqué?</div>
+      <div style="font-weight:700;font-size:12px;color:#dc2626;margin-bottom:5px">&#9888;&#65039; What if the match no se juega con los equipos que pronostiqué?</div>
       <div style="font-size:12px;color:var(--tx);line-height:1.6">The match <em>always</em> takes place between whoever qualified for those positions. Your points depend on <strong>who wins that specific match</strong>, not which exact teams are in it.</div>
     </div>
     <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:var(--r-sm);padding:12px 14px">
@@ -900,6 +982,10 @@ const CONFIG = {
   admin: {
     password: 'waimakers2026'
   },
+  analysisPick:    'Brazil',
+  analysisNote:    'Brazil enter the tournament as the highest-rated attacking side (92/99). Vinicius Jr. at peak form. Strong favourite for the title.',
+  darkHorse:       'Norway',
+  darkHorseNote:   'Haaland + Ødegaard in 2026. The most lethal combination not listed as a favourite — if their system connects, they can reach the semis.',
 
   features: {
     chat: true,
@@ -909,6 +995,214 @@ const CONFIG = {
 
 const db = supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.key);
 const ADMIN_PWD = CONFIG.admin.password;
+
+
+// ── ANALYSIS FUNCTIONS ──────────────────────────────────────────────────
+
+const TIER_LABELS={'Favourite':{color:'#f59e0b',bg:'rgba(245,158,11,.12)',border:'rgba(245,158,11,.3)',icon:'🏆'},'Contender':{color:'#3b82f6',bg:'rgba(59,130,246,.10)',border:'rgba(59,130,246,.25)',icon:'⚽'},'Dark Horse':{color:'#22c55e',bg:'rgba(34,197,94,.10)',border:'rgba(34,197,94,.25)',icon:'⚡'},'Participant':{color:'#6b7280',bg:'rgba(107,114,128,.10)',border:'rgba(107,114,128,.2)',icon:'🏳️'}};
+
+
+// ── TEAM DATA ──────────────────────────────────────────────────────
+const TEAM_DATA={
+'Mexico':{c:'Javier Aguirre',f:'4-3-3',s:'Pressing alto y transiciones rápidas. Alta dependencia del doble pivote para recuperación.',p:['Edson Álvarez','Santiago Giménez','Hirving Lozano'],r:76,t:'Contender',h:'7 veces en Octavos. Nunca ha pasado de esa ronda.',n:'Ventaja de ser anfitrión. Affinity Index del sistema Aguirre: 74/99 en pressing vs bloques medios. Santiago Giménez aporta profundidad vertical inusual. Punto crítico: dependencia de Álvarez como ancla táctica.'},
+'South Africa':{c:'Hugo Broos',f:'4-2-3-1',s:'Bloque medio compacto, salida de balón por los laterales y contragolpe rápido.',p:['Percy Tau','Bongani Zungu','Themba Zwane'],r:58,t:'Dark Horse',h:'2010 (propio). Regresa tras 24 años.',n:'AI de 61/99 en fases defensivas organizadas, solo 44/99 ante presión alta sostenida. Percy Tau, con experiencia en Premier League, es el diferencial.'},
+'South Korea':{c:'Hong Myung-bo',f:'4-2-3-1',s:'Híbrido pressing organizado + velocidad de transición ofensiva. Alta dependencia de Son.',p:['Son Heung-min','Lee Kang-in','Hwang Hee-chan'],r:73,t:'Contender',h:'4º en 2002. Octavos en 2010. Regresa con su mejor generación.',n:'AI de 78/99 en transiciones ofensivas desde bloque medio. Lee Kang-in ha madurado en el PSG. Si Son no rinde al nivel esperado, el índice ofensivo cae un 40%.'},
+'Czech Republic':{c:'Ivan Hašek',f:'4-2-3-1',s:'Organización defensiva sólida, salida pausada y búsqueda de Schick en finalización.',p:['Patrik Schick','Tomáš Souček','Vladimír Coufal'],r:65,t:'Dark Horse',h:'Como Checoslovaquia: 2 finales (1934, 1962). Como Rep. Checa: 1 participación (2006).',n:'AI de 70/99 en contragolpe desde bloque bajo — uno de los más altos de Europa en ese parámetro. Schick es un delantero completo con lectura táctica excepcional.'},
+'Canada':{c:'Jesse Marsch',f:'4-3-3',s:'Pressing de alta intensidad, transiciones verticales y predominio físico en duelos directos.',p:['Alphonso Davies','Jonathan David','Tajon Buchanan'],r:74,t:'Contender',h:'1986 (1ª vez) · 2022 (vuelta) · 2026 (anfitrión).',n:'Marsch importa el RB Leipzig gegenpressing. AI de Davies en amplitud izquierda: 94/99 — el más alto de la selección. Jonathan David, con 30+ goles/temporada en Ligue 1, aporta la efectividad que faltaba.'},
+'Bosnia-Herz.':{c:'Sergej Barbarez',f:'4-1-4-1',s:'Bloque medio compacto, mediocampo físico y búsqueda directa de jugadores de área.',p:['Edin Džeko','Sasa Kalajdžić','Amer Gojak'],r:62,t:'Dark Horse',h:'2014 (única participación). Eliminada en grupos.',n:'AI de 65/99 en transición corta desde bloque medio. Kalajdžić aporta presencia aérea crucial en balones parados. Riesgo: irregularidad en partidos de alta exigencia táctica.'},
+'Qatar':{c:'Marqués López',f:'5-3-2',s:'Bloque bajo defensivo, salida en corto y transiciones controladas.',p:['Akram Afif','Almoez Ali','Abdulaziz Hatem'],r:48,t:'Participant',h:'2022 como anfitrión: primer local eliminado en grupos de un Mundial que organizaba.',n:'AI de 52/99. Sin ventaja logística de Qatar 2022, las limitaciones tácticas son más evidentes. Akram Afif, Balón de Oro asiático 2023, es su único jugador de clase mundial.'},
+'Switzerland':{c:'Murat Yakin',f:'3-4-2-1',s:'Polivalencia táctica. Pressing escalonado y construcción desde atrás con los centrales.',p:['Granit Xhaka','Xherdan Shaqiri','Breel Embolo'],r:75,t:'Contender',h:'QF en 1934/38. Octavos en 2006, 2010, 2014, 2022.',n:'AI de 79/99 en estabilidad defensiva. Xhaka (Arsenal) eleva el control del mediocampo a 85/99. El problema: en eliminatoria directa vs favoritos, el sistema colapsa históricamente.'},
+'Brazil':{c:'Dorival Júnior',f:'4-2-3-1',s:'Posesión elaborada con velocidad extrema en bandas y combinaciones técnicas entre líneas.',p:['Vinicius Jr.','Rodrygo','Endrick'],r:92,t:'Favourite',h:'5 títulos (1958, 1962, 1970, 1994, 2002). No gana desde hace 24 años.',n:'Vinicius Jr. tiene el AI de movilidad en banda izquierda más alto del mundo (96/99). Endrick, a sus 20 años, tiene el índice de profundidad vertical más alto del plantel. 🏆 ★ Top Pick Champion.'},
+'Morocco':{c:'Walid Regragui',f:'4-3-3',s:'Pressing medio-alto organizado, transiciones rápidas por bandas y solidez defensiva.',p:['Achraf Hakimi','Hakim Ziyech','Youssef En-Nesyri'],r:79,t:'Contender',h:'Qatar 2022: SEMIFINALISTAS — mejor resultado de África en la historia.',n:'AI de 82/99 en bloque medio-bajo defensivo. Hakimi: mejor lateral derecho del mundo en desdoblamiento ofensivo (89/99). La presión de confirmar el rendimiento histórico puede generar tensión.'},
+'Haiti':{c:'Marc Collat',f:'4-4-2',s:'Bloque bajo defensivo, transiciones físicas directas.',p:['Dukens Nazon','Frantzdy Pierrot','Carlens Arcus'],r:44,t:'Participant',h:'1974 (única). Regresa al Mundial tras 52 años.',n:'AI colectivo de 46/99. Alta cohesión grupal y motivación. Partido clave vs Escocia. Posibilidades de avanzar del grupo: <8%.'},
+'Scotland':{c:'Steve Clarke',f:'4-2-3-1',s:'Bloque medio directo, pressing físico en segunda jugada y transiciones laterales rápidas.',p:['Andrew Robertson','Scott McTominay','John McGinn'],r:67,t:'Dark Horse',h:'8 Mundiales (1954-1998). Nunca superó fase de grupos. Regresa tras 28 años.',n:'McTominay AI box-to-box: 84/99. Robertson AI en presión alta: 87/99. Sin Tierney sano, el sistema pierde profundidad zurda.'},
+'USA':{c:'Mauricio Pochettino',f:'4-3-3',s:'Pressing alto desde primera línea, construcción desde portería y verticalidad por los interiores.',p:['Christian Pulisic','Gio Reyna','Tyler Adams'],r:75,t:'Contender',h:'3er en 1930 · QF en 2002 · Octavos en 2022.',n:'Pochettino adapta el pressing Tottenham/PSG. Pulisic AI de conexión entre líneas: 81/99. Adams como pivote de recuperación: 88/99. Factor anfitrión masivo.'},
+'Paraguay':{c:'Gustavo Alfaro',f:'4-4-2',s:'Bloque físico con línea media compacta y segunda jugada.',p:['Miguel Almirón','Gustavo Gómez','Antonio Sanabria'],r:63,t:'Dark Horse',h:'QF en 1954 y 2010.',n:'AI del sistema Alfaro en transiciones: 68/99. Almirón AI de pressing vertical: 82/99. Gómez aporta liderazgo en la zaga.'},
+'Australia':{c:'Tony Popovic',f:'4-2-3-1',s:'Estructura defensiva sólida con salidas en transición rápida.',p:['Martin Boyle','Lewis Miller','Ajdin Hrustic'],r:62,t:'Dark Horse',h:'Octavos en 2006 y 2022.',n:'AI de 65/99 en resistencia defensiva ante rivales superiores. El parámetro de "clutch en penales" más alto del grupo D (2 Mundiales con penales).'},
+'Turkey':{c:'Vincenzo Montella',f:'4-2-3-1',s:'Pressing escalonado con recuperación rápida. Transiciones verticales mediante Güler y Çalhanoğlu.',p:['Hakan Çalhanoğlu','Arda Güler','Baris Alper Yilmaz'],r:75,t:'Contender',h:'3er en 2002 · Octavos en 2018.',n:'Arda Güler AI creación entre líneas: 86/99. Çalhanoğlu AI precisión de pase largo: 83/99. El rival más peligroso para EE.UU. en el grupo D.'},
+'Germany':{c:'Julian Nagelsmann',f:'4-2-3-1',s:'Gegenpressing estructurado con pressing alto, construcción elaborada y Musiala/Wirtz como motores.',p:['Florian Wirtz','Jamal Musiala','Joshua Kimmich'],r:88,t:'Favourite',h:'4 títulos (1954, 1974, 1990, 2014). Eliminada en grupos en Qatar 2022.',n:'Wirtz AI creación desde zonas interiores: 92/99. Musiala AI dribbling bajo presión: 89/99. Kimmich AI organización posicional: 91/99. El "clutch problem" alemán persiste.'},
+'Curaçao':{c:'Remko Bicentini',f:'4-4-2',s:'Bloque bajo compacto con salidas en contraataque.',p:['Leandro Bacuna','Cuco Martina','Juninho Bacuna'],r:47,t:'Participant',h:'Primera clasificación mundialista de su historia.',n:'150.000 habitantes en el Mundial. AI colectivo: 49/99. Jugadores con experiencia en ligas europeas. Objetivo: competir dignamente vs Costa de Marfil y Ecuador.'},
+'Ivory Coast':{c:'Emerse Faé',f:'4-3-3',s:'Pressing físico alto con desequilibrio individual en bandas y referencia central robusta.',p:['Sébastien Haller','Franck Kessié','Nicolas Pépé'],r:70,t:'Contender',h:'Octavos en 2014 · Campeón AFCON 2023.',n:'Haller AI presencia aérea en área: 88/99. Kessié AI control de mediocampo: 79/99. El sistema de Faé favorece la intensidad física sobre la elaboración técnica.'},
+'Ecuador':{c:'Sebastián Beccacece',f:'4-3-3',s:'Pressing alto organizado, pressing tras pérdida inmediato y construcción en corto.',p:['Enner Valencia','Moisés Caicedo','Gonzalo Plata'],r:70,t:'Contender',h:'Octavos en 2002 y 2006.',n:'Caicedo (Chelsea) AI recuperación bajo presión alta: 88/99 — uno de los más altos del torneo en ese parámetro. El sistema requiere alta condición física: riesgo de desgaste ante calor extremo.'},
+'Netherlands':{c:'Ronald Koeman',f:'4-3-3',s:'Posesión total con presión desde primera línea. Laterales muy altos en sistema posicional.',p:['Virgil van Dijk','Cody Gakpo','Xavi Simons'],r:85,t:'Favourite',h:'Finalistas en 1974, 1978 y 2010. Semis en 2014.',n:'Van Dijk AI liderazgo defensivo: 93/99. Xavi Simons AI creación desde zonas intermedias: 87/99. Koeman ha resuelto el histórico problema de cohesión colectiva. Aspirantes serios al título.'},
+'Japan':{c:'Hajime Moriyasu',f:'4-2-3-1',s:'Pressing de alta intensidad organizado. Disciplina táctica extraordinaria con transiciones rápidas.',p:['Takehiro Tomiyasu','Kaoru Mitoma','Takumi Minamino'],r:79,t:'Contender',h:'1ª del grupo en Qatar 2022 (venciendo a Alemania y España).',n:'AI de pressing colectivo sincronizado: 87/99 — el más alto de los equipos asiáticos. Moriyasu gestiona el estado de partido mejor que cualquier técnico asiático. Candidatos serios a Cuartos.'},
+'Sweden':{c:'Jon Dahl Tomasson',f:'4-4-2',s:'Sistema físico directo con búsqueda en profundidad de los delanteros.',p:['Viktor Gyökeres','Alexander Isak','Dejan Kulusevski'],r:75,t:'Contender',h:'4º en 1994. Regresa con su mejor generación desde entonces.',n:'Gyökeres (Sporting CP) AI finalización dentro del área: 94/99 — el más alto del torneo en ese parámetro. Isak AI profundidad y movilidad sin balón: 88/99.'},
+'Tunisia':{c:'Jalel Kadri',f:'4-3-3',s:'Organización defensiva en bloque medio y eficiencia en balones parados.',p:['Wahbi Khazri','Youssef Msakni','Hannibal Mejbri'],r:59,t:'Dark Horse',h:'5 participaciones. 1ª victoria mundialista en 1978 vs México.',n:'Mejbri (Manchester United) AI creación entre líneas: 76/99. AI en compacidad de bloque: 72/99. En el Grupo F con Países Bajos, Japón y Suecia, la clasificación es ambiciosa.'},
+'Belgium':{c:'Thierry Henry',f:'4-3-3',s:'Posesión controlada con pressing escalonado. Mezcla experiencia y talento joven.',p:['Romelu Lukaku','Lois Openda','Amadou Onana'],r:77,t:'Contender',h:'3er en Rusia 2018 · QF en Qatar 2022.',n:'De Bruyne AI creatividad (si disponible): 95/99. Openda AI carrera en profundidad: 82/99. Onana AI control físico del mediocampo: 80/99. Todo depende de la salud de De Bruyne.'},
+'Egypt':{c:'Hossam Hassan',f:'4-2-3-1',s:'Organización defensiva primero, explotación de Salah en transiciones.',p:['Mohamed Salah','Mostafa Mohamed','Trezeguet'],r:71,t:'Contender',h:'3 participaciones (1934, 1990, 2018).',n:'Salah AI creación desde banda derecha: 93/99. Si Salah no está al 100%, el índice ofensivo del equipo cae un 65%. Dependencia excesiva de un solo jugador.'},
+'Iran':{c:'Amir Ghalenoei',f:'5-4-1',s:'Ultra-defensivo en bloque bajo, salidas en transición directa a Taremi y Azmoun.',p:['Mehdi Taremi','Sardar Azmoun','Alireza Jahanbakhsh'],r:65,t:'Dark Horse',h:'6 participaciones mundialistas. Nunca pasó de grupos.',n:'Taremi (Inter de Milán) AI efectividad en área con balones en profundidad: 88/99. AI de resistencia defensiva organizada: 77/99 — difíciles de batir. ¿Pueden generar suficiente para ganar?'},
+'New Zealand':{c:'Darren Bazeley',f:'4-4-2',s:'Sistema físico directo con segunda jugada y duelos aéreos.',p:['Clayton Lewis','Tim Payne','Liberato Cacace'],r:49,t:'Participant',h:'2010 (única participación moderna, empate vs Italia).',n:'AI colectivo: 51/99. Cacace (Empoli, Italia) es el único jugador con experiencia habitual en top-5 europeo. En el Grupo G con Bélgica y Egipto, objetivo: al menos un empate.'},
+'Spain':{c:'Luis de la Fuente',f:'4-3-3',s:'Posesión dominante con pressing altísimo tras pérdida. Verticalidad táctica y construcción desde atrás.',p:['Pedri','Lamine Yamal','Nico Williams'],r:91,t:'Favourite',h:'Campeona en 2010 · Euro 2024 campeona.',n:'Yamal AI desequilibrio 1vs1 en banda: 97/99 — el más alto del torneo. Pedri AI control bajo presión: 94/99. AI de pressing colectivo: 91/99. El favorito más equilibrado del torneo.'},
+'Cape Verde':{c:'Pedro Brito Bubista',f:'4-1-4-1',s:'Bloque compacto medio-bajo con salidas rápidas por bandas.',p:['Garry Rodrigues','Djaniny','Ryan Mendes'],r:53,t:'Participant',h:'Primera clasificación mundialista de su historia.',n:'550.000 habitantes en el Mundial. AI de unidad defensiva: 89/99. Garry Rodrigues (Besiktas) AI creatividad ofensiva: 71/99. Historia bonita del torneo.'},
+'Saudi Arabia':{c:'Roberto Mancini',f:'4-3-3',s:'Pressing alto organizado con transiciones verticales rápidas al estilo italiano.',p:['Salem Al-Dawsari','Mohammed Al-Owais','Sami Al-Najei'],r:55,t:'Participant',h:'Octavos en 1994 · Victoria histórica vs Argentina en Qatar 2022.',n:'Al-Dawsari AI creación en espacios abiertos: 73/99. En Qatar 2022 el AI de pressing coordinado llegó a 84/99 ese partido. Repetirlo será difícil.'},
+'Uruguay':{c:'Marcelo Bielsa',f:'4-3-3',s:'Pressing altísimo desde la primera línea. El sistema Bielsa en su expresión más pura.',p:['Federico Valverde','Darwin Núñez','Ronald Araújo'],r:81,t:'Contender',h:'Campeón en 1930 y 1950 · Semis en 2010.',n:'Valverde AI productividad física+técnica combinada: 89/99. Darwin Núñez AI profundidad y rotura: 85/99. Riesgo: si el pressing no funciona en los primeros 15 min, el sistema se expone.'},
+'France':{c:'Didier Deschamps',f:'4-2-3-1',s:'Estructura defensiva sólida con transiciones ultrarrápidas capitalizando la velocidad de Mbappé.',p:['Kylian Mbappé','Antoine Griezmann','Aurélien Tchouaméni'],r:92,t:'Favourite',h:'Campeona en 1998 y 2018 · Finalista en Qatar 2022.',n:'Mbappé (27 años en 2026) AI en transiciones ofensivas 1vs1: 97/99 — el más alto del torneo. Griezmann AI sin balón: 91/99. Tchouaméni AI cobertura del mediocampo: 87/99.'},
+'Senegal':{c:'Aliou Cissé',f:'4-3-3',s:'Pressing físico de alta intensidad con transiciones verticales rápidas.',p:['Sadio Mané','Ismaïla Sarr','Kalidou Koulibaly'],r:77,t:'Contender',h:'QF en 2002 · Campeón AFCON 2021/22.',n:'Mané AI desequilibrio individual en espacios amplios: 84/99. Sarr AI velocidad en banda derecha: 79/99. El equipo africano con más opciones de llegar a Cuartos.'},
+'Iraq':{c:'Jesús Casas',f:'4-2-3-1',s:'Bloque medio defensivo con transiciones directas al delantero de referencia.',p:['Aymen Hussein','Bashar Resan','Amjad Attwan'],r:55,t:'Participant',h:'1986 (única). Regresa 40 años después.',n:'AI colectivo: 57/99. Jesús Casas (técnico español) ha organizado defensivamente el equipo. Hussein AI efectividad goleadora: 72/99. Objetivo: aprender del torneo.'},
+'Norway':{c:'Ståle Solbakken',f:'4-3-3',s:'Directo y físico, con verticalización temprana hacia Haaland y Ødegaard como motor creativo.',p:['Erling Haaland','Martin Ødegaard','Alexander Sørloth'],r:81,t:'Contender',h:'1938, 1994 y 1998. Regresa con su mejor generación histórica.',n:'🌟 Dark Horse MM. Haaland (26 años) AI efectividad en área: 96/99 — potencialmente el más peligroso del torneo. Ødegaard AI creación: 89/99. Si conectan, pueden llegar lejos.'},
+'Argentina':{c:'Lionel Scaloni',f:'4-3-3',s:'Bloque medio con transiciones ultrarrápidas. El genio individual combinado con disciplina colectiva.',p:['Julián Álvarez','Lautaro Martínez','Alexis Mac Allister'],r:90,t:'Favourite',h:'Campeona en 1978, 1986 y QATAR 2022. Tricampeona vigente.',n:'Messi (38/39 años) es la gran incógnita física. Con Messi: AI ofensivo 91/99. Sin Messi: AI ofensivo 76/99. Julián Álvarez AI en partidos de alta presión: 87/99.'},
+'Algeria':{c:'Djamel Belmadi',f:'4-4-2',s:'Bloque medio compacto, transiciones rápidas y aprovechamiento de Mahrez en amplitud derecha.',p:['Riyad Mahrez','Sofiane Feghouli','Islam Slimani'],r:66,t:'Dark Horse',h:'Octavos en 2014 · Campeón AFCON 2019.',n:'Mahrez (35 años) AI desde banda derecha: 78/99 aunque en declive. AI del sistema en transiciones: 70/99. En Grupo J, el 2º puesto se disputa contra Austria y Jordania.'},
+'Austria':{c:'Ralf Rangnick',f:'4-2-3-1',s:'Gegenpressing intenso al estilo Rangnick. Transiciones verticales rápidas y organización posicional.',p:['David Alaba','Marcel Sabitzer','Konrad Laimer'],r:72,t:'Contender',h:'Última participación en 1998. Regresa tras 28 años.',n:'Sabitzer AI pressing/recuperación: 83/99. Laimer AI dinámica física en transición: 81/99. El sistema de Rangnick requiere condición física tope — riesgo de desgaste.'},
+'Jordan':{c:'Adnan Hamad',f:'5-3-2',s:'Sistema ultra defensivo con bloque bajo, doble pivote físico y transiciones directas.',p:['Musa Al-Taamari','Yazan Al-Naimat','Ahmad Awawdeh'],r:51,t:'Participant',h:'Primera clasificación mundialista de su historia.',n:'Al-Taamari (Montpellier) — único con experiencia en liga europea top-5. AI de compacidad de bloque bajo: 62/99. Un empate sería un resultado histórico.'},
+'Portugal':{c:'Roberto Martínez',f:'4-3-3',s:'Posesión elaborada con cambios de ritmo y creación por interiores.',p:['Bernardo Silva','Rafael Leão','Rúben Neves'],r:86,t:'Favourite',h:'Campeón Europa 2016 · UEFA Nations League · 3er en 1966.',n:'Bernardo Silva (Real Madrid) AI creatividad desde posiciones intermedias: 90/99. Leão AI desequilibrio izquierda: 87/99. Portugal puede ganar sin depender de un solo jugador. Aspirantes a semis.'},
+'DR Congo':{c:'Sébastien Desabre',f:'4-2-3-1',s:'Organización física en mediocampo, velocidad en transiciones y presencia aérea.',p:['Yannick Bolasie','Cédric Bakambu','Chancel Mbemba'],r:62,t:'Dark Horse',h:'Como Zaire: 1974. Como R.D. Congo: primera participación moderna.',n:'Bolasie (39 años) AI desequilibrio individual: sigue siendo válido. Bakambu AI efectividad goleadora: 71/99. AI de combinaciones de mediocampo: 64/99 — necesita mayor desarrollo colectivo.'},
+'Uzbekistan':{c:'Srecko Katanec',f:'4-5-1',s:'Bloque medio compacto con mediocampo de 5 y salidas verticales a Shomurodov.',p:['Eldor Shomurodov','Dostonbek Khamdamov','Otabek Shukurov'],r:60,t:'Dark Horse',h:'Primera clasificación mundialista de Uzbekistán.',n:'Shomurodov (Cagliari/Roma) AI en transiciones: 74/99. AI del bloque defensivo: 67/99. El 2º puesto del Grupo K se disputa con R.D. Congo y Colombia.'},
+'Colombia':{c:'Néstor Lorenzo',f:'4-3-3',s:'Posesión combinativa con verticalidad, presión media alta y explosividad de Luis Díaz.',p:['Luis Díaz','Jhon Durán','James Rodríguez'],r:77,t:'Contender',h:'QF en 2014 · Octavos en 1990 y 2018.',n:'Luis Díaz (Liverpool) AI penetración izquierda: 88/99. Durán (Aston Villa) AI presencia física en área: 83/99. James (37 años): si está al 100%, AI creación: 87/99 — gran incógnita.'},
+'England':{c:'Thomas Tuchel',f:'4-2-3-1',s:'Pressing alto estructurado, construcción desde portería y Bellingham como motor del juego.',p:['Jude Bellingham','Harry Kane','Phil Foden'],r:88,t:'Favourite',h:'Campeona en 1966. Finalista en Euro 2020 y Euro 2024.',n:'Bellingham (Real Madrid, 22 años) AI productividad ofensiva: 91/99 y AI cobertura defensiva: 85/99. Kane AI finalización en área: 89/99. Tuchel gestiona mejor que Southgate las presiones de torneos.'},
+'Croatia':{c:'Zlatko Dalić',f:'4-3-3',s:'Posesión controlada con Modrić como eje organizador, pressing escalonado.',p:['Luka Modrić','Mateo Kovačić','Ivan Perišić'],r:75,t:'Contender',h:'2ª en Rusia 2018 · 3ª en Qatar 2022.',n:'Modrić (40 años) AI control posicional: 87/99, resistencia física: 71/99. Kovačić AI conducción bajo presión: 83/99. Dalić más consistente que cualquier técnico europeo en grandes torneos.'},
+'Ghana':{c:'Otto Addo',f:'4-4-2',s:'Sistema físico directo con pressing de segunda jugada y amplitud de los extremos.',p:['Iñaki Williams','Antoine Semenyo','Jordan Ayew'],r:64,t:'Dark Horse',h:'QF en 2006 y 2010.',n:'Iñaki Williams (Athletic) AI desequilibrio físico en banda: 77/99. Semenyo AI penetración por velocidad: 72/99. Con Croacia en el grupo, la segunda plaza es el objetivo.'},
+'Panama':{c:'Thomas Christiansen',f:'4-4-2',s:'Bloque bajo defensivo, intensidad física en segunda jugada.',p:['Rolando Blackburn','Alberto Quintero','Cecilio Waterman'],r:54,t:'Participant',h:'2018 (primera). Eliminada en grupos. 2026: segunda clasificación histórica.',n:'AI en resistencia defensiva organizada: 63/99 — inusualmente alto para su nivel. Blackburn AI efectividad en área reducida: 69/99. La experiencia de 2018 es su mayor activo intangible.'}
+};
+
+
+function acRatingBar(r){
+  const pct=Math.round(r);
+  const col=r>=85?'var(--or)':r>=70?'#f59e0b':r>=55?'#3b82f6':'#6b7280';
+  return `<div class="ac-rating-label">Strength Rating</div><div class="ac-bar-wrap"><div class="ac-bar-fill" style="width:${pct}%;background:${col}"></div></div><div class="ac-bar-val">${pct}/99</div>`;
+}
+
+function acTeamBlock(teamName){
+  const d=TEAM_DATA[teamName];
+  if(!d)return `<div class="ac-team-block"><div class="ac-team-name">${esc(teamName)}</div><div style="font-size:10px;color:rgba(255,255,255,.3)">No data available</div></div>`;
+  const tl=TIER_LABELS[d.t]||TIER_LABELS['Participant'];
+  return `<div class="ac-team-block">
+    <div class="ac-team-name">${fi(teamName)||''}${esc(teamName)}</div>
+    ${acRatingBar(d.r)}
+    <div class="ac-player-key">⭐ <strong>${esc(d.p[0])}</strong></div>
+    <div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:4px">${esc(d.f)} · <span style="color:${tl.color}">${d.t}</span></div>
+  </div>`;
+}
+
+function renderAnalysisCorner(mid,hTeam,aTeam){
+  const hd=TEAM_DATA[hTeam],ad=TEAM_DATA[aTeam];
+  if(!hd&&!ad)return '';
+  const hR=hd?hd.r:50,aR=ad?ad.r:50;
+  const diff=hR-aR;
+  const pick=diff>5?hTeam:diff<-5?aTeam:'Balanced';
+  const prob=pick==='Balanced'?'50/50':Math.round(50+(Math.abs(diff)*0.6))+'% '+pick;
+  return `<div class="ac-corner" id="acc-${mid}">
+    <div class="ac-corner-head"><span style="font-size:14px">📊</span><div class="ac-corner-title">Tactical Analysis</div></div>
+    <div class="ac-teams-row">${acTeamBlock(hTeam)}${acTeamBlock(aTeam)}</div>
+    <div class="ac-pick-row">
+      <div class="ac-pick-label">Predicted</div>
+      <div class="ac-pick-val">${pick==='Balanced'?'⚖️ Evenly matched':'🎯 '+esc(pick)}</div>
+      <div class="ac-pick-prob">${prob}</div>
+    </div>
+    ${hd?`<div class="ac-note">${esc(hd.n)}</div>`:''}
+  </div>`;
+}
+
+function toggleAnalysisCorner(mid){
+  const el=document.getElementById('acc-'+mid);
+  const btn=document.getElementById('acb-'+mid);
+  if(!el||!btn)return;
+  const open=el.classList.toggle('open');
+  btn.classList.toggle('open',open);
+  btn.textContent=open?'▲ Close':'📊 Analysis';
+}
+
+function openTeamModal(teamName){
+  const d=TEAM_DATA[teamName];
+  const overlay=document.getElementById('team-modal-overlay');
+  const content=document.getElementById('team-modal-content');
+  if(!overlay||!content)return;
+  const tl=d?TIER_LABELS[d.t]||TIER_LABELS['Participant']:null;
+  content.innerHTML=`
+    <div class="tm-head">
+      <div>${fi(teamName,48)||'<span style="font-size:48px">🏳️</span>'}</div>
+      <div class="tm-info">
+        <div class="tm-name">${esc(teamName)}</div>
+        ${d?`<div class="tm-tier" style="background:${tl.bg};border:1px solid ${tl.border};color:${tl.color}">${tl.icon} ${d.t}</div>`:''}
+        ${d?`<div class="tm-coach">👔 ${esc(d.c)}</div>`:''}
+        ${d?`<div class="tm-formation">${esc(d.f)}</div>`:''}
+      </div>
+      <button class="tm-close" onclick="closeTeamModal()">✕</button>
+    </div>
+    <div class="tm-body">
+      ${d?`
+      <div class="tm-section"><div class="tm-section-title">Strength Rating</div>${acRatingBar(d.r)}</div>
+      <div class="tm-section"><div class="tm-section-title">Playing Style</div><div class="tm-style">${esc(d.s)}</div></div>
+      <div class="tm-section"><div class="tm-section-title">Key Players</div><div class="tm-players">${d.p.map(p=>`<div class="tm-player">⭐ ${esc(p)}</div>`).join('')}</div></div>
+      <div class="tm-section"><div class="tm-section-title">World Cup History</div><div class="tm-history">${esc(d.h)}</div></div>
+      <div class="tm-section"><div class="tm-section-title">Tactical Notes</div><div class="tm-note">${esc(d.n)}</div></div>
+      `:'<div style="text-align:center;padding:30px;color:rgba(255,255,255,.4)">No data available for this team</div>'}
+    </div>`;
+  overlay.style.display='flex';
+}
+
+function closeTeamModal(){
+  const overlay=document.getElementById('team-modal-overlay');
+  if(overlay)overlay.style.display='none';
+}
+
+function renderAnalysisTab(){
+  const favPick=CONFIG.analysisPick||'Brazil';
+  const favNote=CONFIG.analysisNote||'Top rated team entering the tournament.';
+  const darkHorse=CONFIG.darkHorse||'Norway';
+  const darkHorseNote=CONFIG.darkHorseNote||'Unexpected contender with world-class talent.';
+
+  const cp=document.getElementById('atab-champion-pick');
+  if(cp)cp.innerHTML=`<div class="pick-champion">
+    <div class="pick-champion-label">🏆 Tournament Favourite — Predicted Champion</div>
+    <div class="pick-champion-team">${fi(favPick)||''}${esc(favPick)}</div>
+    <div class="pick-champion-note">${esc(favNote)}</div>
+  </div>
+  <div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.2);border-radius:12px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
+    <span style="font-size:24px">⚡</span>
+    <div>
+      <div style="font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#22c55e;margin-bottom:4px">Dark Horse Pick</div>
+      <div style="font-size:14px;font-weight:700;color:#e2e8f0">${fi(darkHorse)||''}${esc(darkHorse)}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:4px">${esc(darkHorseNote)}</div>
+    </div>
+  </div>`;
+
+  const tiers=['Favourite','Contender','Dark Horse'];
+  const tierIds={'Favourite':'atab-tier-favourites','Contender':'atab-tier-contenders','Dark Horse':'atab-tier-darkhorses'};
+  tiers.forEach(tier=>{
+    const id=tierIds[tier];if(!id)return;
+    const el=document.getElementById(id);if(!el)return;
+    const tl=TIER_LABELS[tier];
+    const teams=Object.entries(TEAM_DATA).filter(([,d])=>d.t===tier).sort((a,b)=>b[1].r-a[1].r);
+    if(!teams.length){el.innerHTML='';return;}
+    el.innerHTML=`<div class="tier-section">
+      <div class="tier-section-title" style="color:${tl.color}">${tl.icon} ${tier}s</div>
+      <div class="tier-grid">${teams.map(([name,d])=>{
+        const flagCode=FC[name]||'';
+        return `<div class="tier-card" onclick="openTeamModal('${esc(name).replace(/'/g,"\\'")}')">
+          <img src="./flags/${flagCode}.png" class="tier-card-flag" onerror="this.src='https://flagcdn.com/20x15/${flagCode}.png'" alt="${esc(name)}"/>
+          <div class="tier-card-name">${esc(name)}</div>
+          <div class="tier-card-rating">${d.r}</div>
+          <div class="tier-card-badge" style="background:${tl.bg};border:1px solid ${tl.border};color:${tl.color}">${d.f}</div>
+        </div>`;
+      }).join('')}</div>
+    </div>`;
+  });
+
+  const ga=document.getElementById('atab-group-analysis');
+  if(ga){
+    const groupEntries=Object.entries(GROUPS);
+    const groupCards=groupEntries.map(([g,teams])=>{
+      const teamNames=teams.map(t=>t[1]);
+      const ratings=teamNames.map(n=>TEAM_DATA[n]?.r||50);
+      const avgRating=Math.round(ratings.reduce((a,b)=>a+b,0)/ratings.length);
+      const maxRating=Math.max(...ratings);
+      const danger=maxRating>=88&&avgRating>=70?'alto':avgRating>=68?'medio':'bajo';
+      const dangerLabel={'alto':'🔥 Tough','medio':'⚡ Medium','bajo':'😴 Open'}[danger];
+      return `<div class="group-analysis-card">
+        <div class="ga-header"><div class="ga-group">Group ${g}</div><div class="ga-danger ${danger}">${dangerLabel}</div></div>
+        <div class="ga-teams">${teamNames.map(name=>{
+          const d=TEAM_DATA[name];
+          return `<div class="ga-team-row" onclick="openTeamModal('${esc(name).replace(/'/g,"\\'")}')">
+            ${fi(name)||''}<div class="ga-team-name">${esc(name)}</div>
+            <div class="ga-team-rating">${d?d.r:'-'}</div>
+          </div>`;
+        }).join('')}</div>
+      </div>`;
+    });
+    ga.innerHTML=`<div class="section-header" style="margin-bottom:14px"><div class="bb" style="font-size:20px;color:var(--or);letter-spacing:1.5px">Group Analysis</div></div>
+    <div class="group-analysis-grid">${groupCards.join('')}</div>`;
+  }
+}
 
 function applyConfig(){
   // ── Color de marca ──────────────────────────────────────────────
@@ -1462,7 +1756,7 @@ async function loadChatMsgs(){
     renderChatMsgs();
   }catch(e){
     const el=document.getElementById('chat-msgs');
-    if(el)el.innerHTML='<div class="empty" style="margin:auto"><div class="empty-icon">&#9888;</div><div class="empty-msg">Error cargando mensajes</div><div class="empty-sub">Comprueba que la tabla chat_messages existe en Supabase</div></div>';
+    if(el)el.innerHTML='<div class="empty" style="margin:auto"><div class="empty-icon">&#9888;</div><div class="empty-msg">Error loading messages</div><div class="empty-sub">Check that the chat_messages table exists in Supabase</div></div>';
   }
 }
 
@@ -1569,6 +1863,7 @@ function sv(v){
     renderPred();
   }
   if(v==='bracket')renderBracket();
+  if(v==='analysis')renderAnalysisTab();
   if(v==='ranking'){renderRankingView();}
   if(v==='chat'){initChat();}
   if(v==='admin')renderAdmin();
@@ -1864,7 +2159,7 @@ async function renderHomeLB(){
     });
     const played=Object.keys(RES).filter(k=>+k<=104).length;
     const rows=Object.keys(PARTS).map(name=>{const sc=scoreUser(up[name]||{});return{name,...sc};}).sort((a,b)=>b.total-a.total||b.gPts-a.gPts);
-    document.getElementById('lbinfo').textContent=played+'/104 resultados';
+    document.getElementById('lbinfo').textContent=played+'/104 results';
     const medals=['g','s','b'];
     document.getElementById('lbbody').innerHTML=rows.length?rows.map((r,i)=>{
       const me=r.name===CU?' me':'';
@@ -1952,7 +2247,9 @@ function renderML(){
       }
       const ph_=p?.h??'',pa_=p?.a??'';
       const dis=CB?'disabled':'';
-      return '<div class="mrow '+cls+'" style="flex-wrap:wrap"><div class="mnum">'+m.id+'</div><div class="mteams">'+fi(home)+esc(home)+'</div><span class="mvs">vs</span><div class="mteams">'+fi(away)+esc(away)+'</div>'+stH+'<div class="sinp-wrap"><input class="sinp" type="number" min="0" max="20" value="'+ph_+'" placeholder="\u2014" '+dis+' oninput="setGP('+m.id+',\'h\',this.value)"/><span class="sdash">-</span><input class="sinp" type="number" min="0" max="20" value="'+pa_+'" placeholder="\u2014" '+dis+' oninput="setGP('+m.id+',\'a\',this.value)"/></div></div>';
+      const acBtn=TEAM_DATA[home]&&TEAM_DATA[away]?'<button class="ac-btn" id="acb-'+m.id+'" onclick="toggleAnalysisCorner('+m.id+')">📊 Analysis</button>':'';
+      const acC=TEAM_DATA[home]&&TEAM_DATA[away]?renderAnalysisCorner(m.id,home,away):'';
+      return '<div class="mrow '+cls+'" style="flex-wrap:wrap"><div class="mnum">'+m.id+'</div><div class="mteams" onclick="openTeamModal(\''+home+'\')" style="cursor:pointer;text-decoration:underline dotted rgba(0,0,0,.15)">'+fi(home)+esc(home)+'</div><span class="mvs">vs</span><div class="mteams" onclick="openTeamModal(\''+away+'\')" style="cursor:pointer;text-decoration:underline dotted rgba(0,0,0,.15)">'+fi(away)+esc(away)+'</div>'+stH+acBtn+'<div class="sinp-wrap"><input class="sinp" type="number" min="0" max="20" value="'+ph_+'" placeholder="\u2014" '+dis+' oninput="setGP('+m.id+',\'h\',this.value)"/><span class="sdash">-</span><input class="sinp" type="number" min="0" max="20" value="'+pa_+'" placeholder="\u2014" '+dis+' oninput="setGP('+m.id+',\'a\',this.value)"/></div>'+acC+'</div>';
     }else{
       const hL=posLabel(m.hk,RES,LP),aL=posLabel(m.ak,RES,LP);
       const hPos=hL.pos,hTeam=hL.team,aPos=aL.pos,aTeam=aL.team;
@@ -2065,7 +2362,7 @@ function buildBracketInto(containerId, picks){
         <span style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280">Champion</span>
         ${bFlagEl(champCode,true)}
         <span style="font-size:14px;font-weight:700;color:#fc4b08">${champ}</span>
-      </div>`:'<div style="text-align:center;padding:8px;font-size:10px;color:#9ca3af;font-style:italic">Rellena la final para ver el campe&oacute;n</div>'}
+      </div>`:'<div style="text-align:center;padding:8px;font-size:10px;color:#9ca3af;font-style:italic">Fill in the final to see the champion</div>'}
     </div>
     <div style="flex:1"></div>
   </div>`;
@@ -2118,11 +2415,11 @@ function renderBracket(){
     for(const[g]of Object.entries(GROUPS)){
       const st=calcSt(g,LP);
       const filled=GM.filter(m=>m.gr===g&&LP[m.id]&&LP[m.id].h!=null).length;
-      h+=`<div class="sc"><div class="sc-title" style="display:flex;align-items:center;justify-content:space-between"><span>Group ${g}</span><span style="font-size:10px;opacity:.7;font-weight:400">${filled}/6</span></div><table class="smt"><thead><tr><th>Selecci\u00f3n</th><th>Pts</th><th>GD</th></tr></thead><tbody>${st.map((t,i)=>`<tr class="${i===0?'q1':i===1?'q2':i===2?'q3':''}"><td>${fi(t.team)}<span style="font-weight:${i<2?'700':'400'}">${esc(t.team)}</span>${i===0?' 🥇':i===1?' 🥈':i===2?' 🥉':''}</td><td><strong>${t.pts}</strong></td><td style="color:${t.gd>0?'var(--green)':t.gd<0?'var(--red)':'var(--mt)'}">${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table></div>`;
+      h+=`<div class="sc"><div class="sc-title" style="display:flex;align-items:center;justify-content:space-between"><span>Group ${g}</span><span style="font-size:10px;opacity:.7;font-weight:400">${filled}/6</span></div><table class="smt"><thead><tr><th>Team</th><th>Pts</th><th>GD</th></tr></thead><tbody>${st.map((t,i)=>`<tr class="${i===0?'q1':i===1?'q2':i===2?'q3':''}"><td>${fi(t.team)}<span style="font-weight:${i<2?'700':'400'}">${esc(t.team)}</span>${i===0?' 🥇':i===1?' 🥈':i===2?' 🥉':''}</td><td><strong>${t.pts}</strong></td><td style="color:${t.gd>0?'var(--green)':t.gd<0?'var(--red)':'var(--mt)'}">${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table></div>`;
     }
     h+='</div>';
     const bt=getBT(LP);
-    h+=`<div class="bb" style="font-size:20px;color:var(--or);letter-spacing:1px;margin:16px 0 10px">Best Third-placed Teams</div><table class="tht" style="margin-bottom:24px"><thead><tr><th>#</th><th>Selecci\u00f3n</th><th>Grupo</th><th>Pts</th><th>GD</th></tr></thead><tbody>${bt.map((t,i)=>`<tr class="${i<8?'pass':''}"><td style="font-weight:700;color:${i<8?'var(--green)':'var(--red)'}">${i+1}</td><td>${fi(t.team)}<strong>${esc(t.team)}</strong></td><td>Grupo ${t.group}</td><td>${t.pts}</td><td>${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table>`;
+    h+=`<div class="bb" style="font-size:20px;color:var(--or);letter-spacing:1px;margin:16px 0 10px">Best Third-placed Teams</div><table class="tht" style="margin-bottom:24px"><thead><tr><th>#</th><th>Team</th><th>Grupo</th><th>Pts</th><th>GD</th></tr></thead><tbody>${bt.map((t,i)=>`<tr class="${i<8?'pass':''}"><td style="font-weight:700;color:${i<8?'var(--green)':'var(--red)'}">${i+1}</td><td>${fi(t.team)}<strong>${esc(t.team)}</strong></td><td>Grupo ${t.group}</td><td>${t.pts}</td><td>${t.gd>0?'+'+t.gd:t.gd}</td></tr>`).join('')}</tbody></table>`;
     h+='<div class="bb" style="font-size:20px;color:var(--or);letter-spacing:1px;margin-bottom:4px">Knockout Bracket</div><div style="font-size:11px;color:var(--mt);margin-bottom:12px">Green = your pick \u00b7 Drag to navigate</div><div id="myBracketContainer"></div>';
     bc.innerHTML=h;
     buildBracketInto('myBracketContainer',LP);
@@ -2190,9 +2487,9 @@ function renderAML(){
   const sd=document.getElementById('ast-div');const td=document.getElementById('ath-div');
   if(aAP==='Grupos'){
     const st=calcSt(aAG);
-    sd.innerHTML='<div style="margin-bottom:12px"><table class="ast"><thead><tr><th>Selecci\u00f3n</th><th>Pts</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th></tr></thead><tbody>'+st.map((t,i)=>'<tr class="'+(i<2?'q':i===2?'t3':'')+'"><td>'+fi(t.team)+(i===0?'\ud83e\udd47':i===1?'\ud83e\udd48':i===2?'\ud83e\udd49':'')+' <strong>'+esc(t.team)+'</strong></td><td><strong>'+t.pts+'</strong></td><td>'+t.p+'</td><td>'+t.w+'</td><td>'+t.d+'</td><td>'+t.l+'</td><td>'+t.gf+'</td><td>'+t.ga+'</td><td>'+(t.gd>=0?'+'+t.gd:t.gd)+'</td></tr>').join('')+'</tbody></table><div style="font-size:11px;color:var(--mt);margin-bottom:8px">\ud83d\udfe2 Clasificados \u00b7 \ud83d\udfe0 Posible mejor 3\u00ba</div></div>';
+    sd.innerHTML='<div style="margin-bottom:12px"><table class="ast"><thead><tr><th>Team</th><th>Pts</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th></tr></thead><tbody>'+st.map((t,i)=>'<tr class="'+(i<2?'q':i===2?'t3':'')+'"><td>'+fi(t.team)+(i===0?'\ud83e\udd47':i===1?'\ud83e\udd48':i===2?'\ud83e\udd49':'')+' <strong>'+esc(t.team)+'</strong></td><td><strong>'+t.pts+'</strong></td><td>'+t.p+'</td><td>'+t.w+'</td><td>'+t.d+'</td><td>'+t.l+'</td><td>'+t.gf+'</td><td>'+t.ga+'</td><td>'+(t.gd>=0?'+'+t.gd:t.gd)+'</td></tr>').join('')+'</tbody></table><div style="font-size:11px;color:var(--mt);margin-bottom:8px">\ud83d\udfe2 Qualified \u00b7 \ud83d\udfe0 Best 3rd</div></div>';
     const bt=getBT();
-    td.innerHTML='<div style="margin-bottom:14px"><div class="bb" style="font-size:16px;color:var(--or);letter-spacing:1px;margin-bottom:8px">Best Third-placed Teams</div><table class="tht"><thead><tr><th>#</th><th>Selecci\u00f3n</th><th>Grupo</th><th>Pts</th><th>GD</th></tr></thead><tbody>'+bt.map((t,i)=>'<tr class="'+(i<8?'pass':'')+'"><td>'+(i+1)+'</td><td>'+fi(t.team)+'<strong>'+esc(t.team)+'</strong></td><td>Grupo '+t.group+'</td><td>'+t.pts+'</td><td>'+(t.gd>=0?'+'+t.gd:t.gd)+'</td></tr>').join('')+'</tbody></table></div>';
+    td.innerHTML='<div style="margin-bottom:14px"><div class="bb" style="font-size:16px;color:var(--or);letter-spacing:1px;margin-bottom:8px">Best Third-placed Teams</div><table class="tht"><thead><tr><th>#</th><th>Team</th><th>Grupo</th><th>Pts</th><th>GD</th></tr></thead><tbody>'+bt.map((t,i)=>'<tr class="'+(i<8?'pass':'')+'"><td>'+(i+1)+'</td><td>'+fi(t.team)+'<strong>'+esc(t.team)+'</strong></td><td>Grupo '+t.group+'</td><td>'+t.pts+'</td><td>'+(t.gd>=0?'+'+t.gd:t.gd)+'</td></tr>').join('')+'</tbody></table></div>';
   }else{sd.innerHTML='';td.innerHTML='';}
   const matches=aAP==='Grupos'?ALL.filter(m=>m.ph==='Grupos'&&m.gr===aAG):ALL.filter(m=>m.ph===aAP);
   document.getElementById('amlist').innerHTML=matches.map(m=>{
@@ -2278,6 +2575,29 @@ applyConfig();
 init();
 </script>
 
+<!-- ANALYSIS TAB -->
+<div class="view" id="view-analysis">
+  <div class="atab-hero">
+    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.6;font-weight:600;color:var(--or);margin-bottom:10px">Tactical Intelligence &middot; 48 Teams</div>
+    <div class="atab-h">World Cup 2026<br/>Analysis</div>
+    <div class="atab-sub">Strength ratings, tactical profiles and predictions for all 48 teams in the tournament.</div>
+  </div>
+  <div id="atab-champion-pick"></div>
+  <div id="atab-tier-favourites"></div>
+  <div id="atab-tier-contenders"></div>
+  <div id="atab-tier-darkhorses"></div>
+  <div id="atab-group-analysis"></div>
+  <div style="text-align:center;padding:20px 0;font-size:11px;color:var(--mt)">Tactical profiles &amp; ratings &middot; FIFA World Cup 2026</div>
+</div>
+
+</div>
+</div>
+
+<!-- TEAM MODAL -->
+<div class="team-modal-overlay" id="team-modal-overlay" style="display:none" onclick="if(event.target===this)closeTeamModal()">
+  <div class="team-modal" id="team-modal-content"></div>
+</div>
+
 <!-- PITCH BAR -->
 <div class="pitch-bar" id="pitch-bar">
   <div class="pitch-bar-text">
@@ -2286,7 +2606,7 @@ init();
   </div>
   <div class="pitch-bar-btns">
     <a id="pitch-bar-li" href="#" target="_blank" rel="noopener" class="pitch-bar-btn li">&#128100; LinkedIn</a>
-    <a id="pitch-bar-em" href="#" class="pitch-bar-btn em">&#9993; Contactar</a>
+    <a id="pitch-bar-em" href="#" class="pitch-bar-btn em">&#9993; Contact</a>
   </div>
 </div>
 </body>
