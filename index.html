@@ -472,9 +472,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .person-card.taken{opacity:.5;cursor:default}
 .person-card.taken:hover{transform:none;border-color:var(--bd);box-shadow:var(--s1)}
 .person-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;display:flex;align-items:center;justify-content:center;letter-spacing:1px;box-shadow:0 2px 8px rgba(249,115,22,.3);flex-shrink:0;overflow:hidden;border:2.5px solid var(--bd);transition:border-color .2s}
-.person-avatar img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
-.person-card:hover .person-avatar{border-color:var(--or)}
-.person-card:hover .person-avatar img{transform:scale(1.05)}
+.person-avatar span{font-size:20px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
+.person-card:hover .person-avatar{border-color:var(--or);transform:scale(1.02)}
 .person-name{font-size:12px;font-weight:700;color:var(--tx);line-height:1.3}
 .person-title{font-size:9px;color:var(--mt);letter-spacing:.3px;line-height:1.4}
 .person-check{position:absolute;top:8px;right:8px;width:16px;height:16px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;display:none}
@@ -1030,13 +1029,13 @@ function renderPersonGrid(){
   const registered = Object.keys(PARTS);
   grid.innerHTML = (CONFIG.team||[]).map(p => {
     const isTaken = registered.includes(p.name) && PARTS[p.name];
-    const avatarHTML = p.photo
-      ? `<img src="${p.photo}" alt="${p.name.split(' ')[0]}" onerror="this.style.display='none'"/>`
-      : p.initials;
     const sq = s => (s||'').replace(/'/g, "&#39;");
     const fn = `selectPerson('${sq(p.name)}','${sq(p.title)}','${sq(p.initials)}','${sq(p.photo||'')}')`;
+    const avatarStyle = p.photo
+      ? `background-image:url('${p.photo}');background-size:cover;background-position:center top;color:transparent;font-size:0`
+      : '';
     return `<div class="person-card${isTaken?' taken':''}" onclick="${isTaken?'':fn}">
-      <div class="person-avatar">${avatarHTML}</div>
+      <div class="person-avatar" style="${avatarStyle}">${p.photo ? '' : `<span>${p.initials}</span>`}</div>
       <div class="person-name">${esc(p.name)}</div>
       <div class="person-title">${esc(p.title)}</div>
       <div class="person-check">&#10003;</div>
@@ -1050,8 +1049,17 @@ function selectPerson(name, title, initials, photo){
   const overlay = document.getElementById('pin-modal-overlay');
   if(!overlay) return;
   const _av = document.getElementById('pin-modal-avatar');
-  if(photo){ _av.innerHTML = `<img src="${photo}" alt="${name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"/>`;
-  } else { _av.textContent = initials; }
+  if(photo){
+    _av.style.backgroundImage = `url('${photo}')`;
+    _av.style.backgroundSize = 'cover';
+    _av.style.backgroundPosition = 'center top';
+    _av.style.color = 'transparent';
+    _av.style.fontSize = '0';
+    _av.textContent = '';
+  } else {
+    _av.style.backgroundImage = '';
+    _av.textContent = initials;
+  }
   document.getElementById('pin-modal-name').textContent = name;
   document.getElementById('pin-modal-role').textContent = title;
   // Check if already registered
