@@ -602,7 +602,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
   <!-- Hidden inputs used by join() -->
   <input id="ni" type="hidden"/>
   <input id="ei" type="hidden"/>
-  <input id="pi" type="hidden" id="jbtn"/>
+  <input id="pi" type="hidden"/>
+  <button id="jbtn" style="display:none" onclick="join()">Join</button>
 
 </div>
 
@@ -677,10 +678,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
   <div class="bb" style="font-size:30px;color:var(--or);letter-spacing:2px;margin-bottom:4px">Sistema de Scoring</div>
   <div style="font-size:12px;color:var(--mt);margin-bottom:24px">How points are calculated in each phase of the tournament</div>
 
-  <!-- CÓMO FUNCIONA EL CUADRO -->
+  <!-- HOW THE BRACKET WORKS -->
   <div class="admin-section" style="border-left:4px solid var(--or)">
     <div class="admin-section-title">&#127960; How knockout bracket predictions work</div>
-    <div style="font-size:13px;color:var(--tx);line-height:1.7;margin-bottom:14px">In the knockout stage <strong>you don't predict specific teams, but bracket positions</strong>. Each match is pre-defined &mdash; por ejemplo, "2&ordm; Grupo A vs 1&ordm; Grupo B". Sea quien sea quien quede en esas posiciones, ese partido se jugar&aacute;.</div>
+    <div style="font-size:13px;color:var(--tx);line-height:1.7;margin-bottom:14px">In the knockout stage <strong>you don't predict specific teams, but bracket positions</strong>. Each match is pre-defined &mdash; for example, &ldquo;2nd Group A vs 1st Group B&rdquo;. Whoever ends up in those positions, that match is played.</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
       <div style="background:var(--orl);border:1px solid rgba(252,75,8,.2);border-radius:var(--r-sm);padding:12px">
         <div style="font-weight:700;font-size:12px;color:var(--or);margin-bottom:6px">&#127938; Round of 32</div>
@@ -1032,7 +1033,8 @@ function renderPersonGrid(){
     const avatarHTML = p.photo
       ? `<img src="${p.photo}" alt="${p.name.split(' ')[0]}" loading="lazy" onerror="this.parentElement.innerHTML='${p.initials}'"/>`
       : p.initials;
-    const fn = `selectPerson(${JSON.stringify(p.name)},${JSON.stringify(p.title)},${JSON.stringify(p.initials)},${JSON.stringify(p.photo||'')})`;
+    const sq = s => (s||'').replace(/'/g, "&#39;");
+    const fn = `selectPerson('${sq(p.name)}','${sq(p.title)}','${sq(p.initials)}','${sq(p.photo||'')}')`;
     return `<div class="person-card${isTaken?' taken':''}" onclick="${isTaken?'':fn}">
       <div class="person-avatar">${avatarHTML}</div>
       <div class="person-name">${esc(p.name)}</div>
