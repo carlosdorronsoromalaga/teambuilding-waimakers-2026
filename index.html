@@ -955,20 +955,45 @@ const CONFIG = {
 
   // Add remaining 8+ team members below when you have their names
   team: [
-    {name:'Wouter van Haaften',   title:'Chief Summit Officer',         initials:'WH', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512505/wouter_yvxurf.jpg'},
-    {name:'Marco Piazzalunga',    title:'Operations Altitude Director',  initials:'MP', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512507/Marco-Piazzalunga_qldnqn.jpg'},
-    {name:'Greg Nieuwenhuys',     title:'Head of Pathfinding',           initials:'GN', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/greg_wxsvcd.jpg'},
-    {name:'Arne Arens',           title:'Transatlantic Expedition Lead', initials:'AA', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/Arne-Arens_qrqzzj.jpg'},
-    {name:'Hidde van den Bergh',  title:'Altitude Strategist',           initials:'HB', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512502/hidde_tya3qp.jpg'},
-    {name:'Suzanne Legtenberg',   title:'Senior Expedition Guide',       initials:'SL', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/suzanne_gh6x8g.jpg'},
-    {name:'Martine Uijland',      title:'Climb Coordinator',             initials:'MU', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512508/martine_uoq18a.jpg'},
-    {name:'Saskia Milsted',       title:'Terrain Strategy Guide',        initials:'SM', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512514/saskia_ejw0kp.jpg'},
-    {name:'Stephanie Köhlinger', title:'Strategy Cartographer',    initials:'SK', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512509/stephanie_tezavb.jpg'},
-    {name:'Anouk Kooijmans',      title:'People Peak Guide',             initials:'AK', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512505/AnoukKooijmans_mxumf1.jpg'},
-    {name:'Gideon Nagtegaal',     title:'Creative Peak Visionary',       initials:'GN', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512503/gideon_webwwz.jpg'},
-    {name:'Maarten Esser',        title:'Automation Ascent Architect',   initials:'ME', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512510/maarten_bcuhcd.jpg'},
-  ],
-};
+    // ── Row 1: Partners & Leads (with photos) ──
+    {name:'Wouter van Haaften',   title:'Founder',                      initials:'WH', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512505/wouter_yvxurf.jpg'},
+    {name:'Marco Piazzalunga',    title:'Partner / COO',                 initials:'MP', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512507/Marco-Piazzalunga_qldnqn.jpg'},
+    {name:'Greg Nieuwenhuys',     title:'Senior Partner',                initials:'GN', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/greg_wxsvcd.jpg'},
+    {name:'Arne Arens',           title:'Partner, US',                   initials:'AA', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/Arne-Arens_qrqzzj.jpg'},
+    {name:'Hidde van den Bergh',  title:'Associate Partner',             initials:'HB', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512502/hidde_tya3qp.jpg'},
+    {name:'Suzanne Legtenberg',   title:'Senior Manager',                initials:'SL', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512504/suzanne_gh6x8g.jpg'},
+    // ── Row 2: Managers & Consultants (with photos) ──
+    {name:'Martine Uijland',      title:'Manager',                       initials:'MU', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512508/martine_uoq18a.jpg'},
+    {name:'Saskia Milsted',       title:'AI Strategy Consultant',        initials:'SM', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512514/saskia_ejw0kp.jpg'},
+    {name:'Stephanie Köhlinger',  title:'Strategic Consultant',          initials:'SK', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512509/stephanie_tezavb.jpg'},
+    {name:'Anouk Kooijmans',      title:'People Lead',                   initials:'AK', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512505/Anouk-Kooijmans_mxumf1.jpg'},
+    {name:'Gideon Nagtegaal',     title:'Executive Creative Director',   initials:'GN', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512503/gideon_webwwz.jpg'},
+    {name:'Maarten Esser',        title:'Head of Automations',           initials:'ME', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/w_160,h_160,c_fill,g_face/v1771512510/maarten_bcuhcd.jpg'},
+    // ── Row 3: AI Specialists ──
+    {name:'Maurice Kleine',       title:'AI Engineering Lead',           initials:'MK'},
+    {name:'Sapphira van Bentum',  title:'Agentic Operations',            initials:'SB'},
+    {name:'Guido Steenbergen',    title:'AI Enablement Manager',         initials:'GS'},
+    {name:'Robin Jackson',        title:'AI Associate',                  initials:'RJ'},
+    {name:'Ole Stam',             title:'AI Associate',                  initials:'OS'},
+    {name:'Sterre Monincx',       title:'AI Associate',                  initials:'SM'},
+    // ── Row 4: AI Associates ──
+    {name:'Isabelle van der Mee', title:'AI Associate',                  initials:'IM'},
+    {name:'Joep Weterman',        title:'AI Associate',                  initials:'JW'},
+    {name:'Hugo Moll',            title:'AI Automations',                initials:'HM'},
+    {name:'Moussa Arbid',         title:'AI Automation Developer',       initials:'MA'},
+    {name:'Wissam Moussa',        title:'Automation Developer',          initials:'WM'},
+    {name:'Paul Melkert',         title:'Head of AI Products',           initials:'PM'},
+    // ── Row 5: Engineering ──
+    {name:'Bram Mosterd',         title:'Head of Data Science',          initials:'BM'},
+    {name:'Tom Teurlings',        title:'AI Sales Engineer',             initials:'TT'},
+    {name:'Moe Saad',             title:'Back-end AI Engineer',          initials:'MS'},
+    {name:'Bahaa Rizk',           title:'Full Stack AI Engineer',        initials:'BR'},
+    {name:'Ali Shour',            title:'Full Stack Software Engineer',  initials:'AS'},
+    {name:'Reinier van Eijk',     title:'AI Trainer',                    initials:'RE'},
+    // ── Row 6: Marketing & Learning ──
+    {name:'Bas Prins',            title:'Marketing AI Specialist',       initials:'BP'},
+    {name:'Ian Strik',            title:'E-learning Expert',             initials:'IS'},
+  ],};
 
 const db = supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.key);
 const ADMIN_PWD = CONFIG.admin.password;
