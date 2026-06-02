@@ -512,9 +512,9 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
       <div class="hs"><div class="hs-n" id="sr">&#8212;</div><div class="hs-l">Results</div></div>
     </div>
     <div class="countdown" id="countdown">
-      <div class="cd-label">⏱ Cuenta atr&aacute;s para el Mundial</div>
+      <div class="cd-label">⏱ Countdown to the World Cup</div>
       <div class="cd-boxes">
-        <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-unit">d&iacute;as</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-unit">days</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-h">--</span><span class="cd-unit">hours</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-m">--</span><span class="cd-unit">min</span></div>
         <div class="cd-box"><span class="cd-num" id="cd-s">--</span><span class="cd-unit">sec</span></div>
@@ -526,8 +526,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     <div class="how-step">
       <div class="how-step-num">1</div>
       <div class="how-step-icon">&#9997;&#65039;</div>
-      <div class="how-step-title">Reg&#237;strate</div>
-      <div class="how-step-desc">Nombre y correo. En 30 segundos est&#225;s dentro y listo para predecir.</div>
+      <div class="how-step-title">Sign Up</div>
+      <div class="how-step-desc">Name, email and PIN. You're in within 30 seconds.</div>
     </div>
     <div class="how-step">
       <div class="how-step-num">2</div>
@@ -544,16 +544,16 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
   </div>
 
   <div class="reg">
-    <h3>Ap&uacute;ntate o accede</h3>
-    <p>Introduce tu nombre, correo y PIN (4&nbsp;d&iacute;gitos). Primera vez &rarr; crea tu PIN. Si ya participas, usa los mismos datos.</p>
+    <h3>Join or Sign In</h3>
+    <p>Enter your name, email and PIN (4+ digits). First time? Create your PIN. Already in? Use the same details.</p>
     <div class="ir">
       <input class="inf" id="ni" placeholder="Full name..." autocomplete="name" onkeydown="if(event.key==='Enter')document.getElementById('ei').focus()"/>
       <input class="inf" id="ei" type="email" placeholder="tu@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')document.getElementById('pi').focus()"/>
-      <input class="inf" id="pi" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="PIN (4+ d&#237;gitos)" autocomplete="current-password" style="max-width:160px" onkeydown="if(event.key==='Enter')join()"/>
+      <input class="inf" id="pi" type="password" inputmode="numeric" pattern="[0-9]*" placeholder="PIN (4+ digits)" autocomplete="current-password" style="max-width:160px" onkeydown="if(event.key==='Enter')join()"/>
       <button class="btn" onclick="join()" id="jbtn">Join</button>
     </div>
     <div id="sbar" style="display:none" class="sbar">
-      <span>Sesi&oacute;n: <span class="sname" id="sname"></span></span>
+      <span>Session: <span class="sname" id="sname"></span></span>
       <span class="schg" onclick="logout()">Change</span>
     </div>
   </div>
@@ -604,7 +604,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 <div id="buser" style="font-size:13px;color:var(--mt);background:var(--sf);border:1px solid var(--bd);border-radius:var(--r-sm);padding:6px 12px;box-shadow:var(--s1)"></div>
     </div>
   </div>
-  <div id="bcontent"><div class="empty">Accede para ver tu cuadro</div></div>
+  <div id="bcontent"><div class="empty">Sign in to see your bracket</div></div>
 </div>
 
 
@@ -793,7 +793,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
         <textarea class="chat-input" id="chat-inp" placeholder="Write a message..." rows="1"
           onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"
           oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
-        <button class="chat-send" onclick="sendChat()" id="chat-send-btn" title="Enviar">&#10148;</button>
+        <button class="chat-send" onclick="sendChat()" id="chat-send-btn" title="Send">&#10148;</button>
       </div>
     </div>
   </div>
@@ -804,7 +804,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     <h2>Admin</h2>
     <p style="color:var(--mt);font-size:13px;margin-bottom:20px">Enter password</p>
     <div class="ir" style="justify-content:center">
-      <input class="inf" id="apwd" type="password" placeholder="Contrase&ntilde;a..." style="max-width:220px" onkeydown="if(event.key==='Enter')unlockAdmin()"/>
+      <input class="inf" id="apwd" type="password" placeholder="Password..." style="max-width:220px" onkeydown="if(event.key==='Enter')unlockAdmin()"/>
       <button class="btn" onclick="unlockAdmin()">Enter</button>
     </div>
   </div>
@@ -816,8 +816,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     <div class="ptabs" id="aptabs">
       <button class="ptab active" onclick="setAP('Grupos')" id="apt-Grupos">Groups</button>
       <button class="ptab" onclick="setAP('R32')" id="apt-R32">Round of 32</button>
-      <button class="ptab" onclick="setAP('R16')" id="apt-R16">Octavos</button>
-      <button class="ptab" onclick="setAP('QF')" id="apt-QF">Cuartos</button>
+      <button class="ptab" onclick="setAP('R16')" id="apt-R16">Round of 16</button>
+      <button class="ptab" onclick="setAP('QF')" id="apt-QF">Quarter Finals</button>
       <button class="ptab" onclick="setAP('SF')" id="apt-SF">Semis</button>
       <button class="ptab" onclick="setAP('3rd')" id="apt-3rd">3rd Place</button>
       <button class="ptab" onclick="setAP('Final')" id="apt-Final">Final</button>
@@ -1112,19 +1112,19 @@ async function renderRankingView(){
     return{name,sc,filled};
   }).sort((a,b)=>b.sc.total-a.sc.total);
 
-  if(info)info.textContent=rows.length+' participantes registrados';
+  if(info)info.textContent=rows.length+' participants registered';
 
   // Leaderboard table (now the only block — rows are clickable for detail)
   const lbBody=document.getElementById('rankingLBbody');
   const lbInfo=document.getElementById('rankingLBinfo');
-  if(lbInfo)lbInfo.textContent=rows.length+' participantes';
+  if(lbInfo)lbInfo.textContent=rows.length+' participants';
   if(lbBody){
     const medals=['g','s','b'];
     lbBody.innerHTML=rows.length?rows.map((r,i)=>{
       const me=r.name===CU?' me':'';
       const predsQ=JSON.stringify(up[r.name]||{}).replace(/"/g,'&quot;');
-      return'<tr class="'+(i<3?medals[i]:'')+me+'" style="cursor:pointer" title="Ver cuadro de '+esc(r.name)+'" onclick="showParticipantDetail(\''+esc(r.name)+'\','+predsQ+')"><td class="rnk">'+(i===0?'&#127949;':i===1?'&#129352;':i===2?'&#129353;':i+1)+'</td><td>'+esc(r.name)+(me?' <span style="font-size:10px;color:var(--or)">(tú)</span>':'')+'</td><td class="pts-big">'+r.sc.total+'</td></tr>';
-    }).join(''):'<tr><td colspan="3" style="text-align:center;padding:20px;color:var(--mt)">Sin resultados a&uacute;n</td></tr>';
+      return'<tr class="'+(i<3?medals[i]:'')+me+'" style="cursor:pointer" title="Bracket: '+esc(r.name)+'" onclick="showParticipantDetail(\''+esc(r.name)+'\','+predsQ+')"><td class="rnk">'+(i===0?'&#127949;':i===1?'&#129352;':i===2?'&#129353;':i+1)+'</td><td>'+esc(r.name)+(me?' <span style="font-size:10px;color:var(--or)">(tú)</span>':'')+'</td><td class="pts-big">'+r.sc.total+'</td></tr>';
+    }).join(''):'<tr><td colspan="3" style="text-align:center;padding:20px;color:var(--mt)">No results yet</td></tr>';
   }
 }
 
@@ -1194,7 +1194,7 @@ async function loadAdminUsers(){
     const{data:blockedData}=await db.from('results').select('pick').eq('match_id',8888).maybeSingle();
     const blocked=blockedData?.pick?JSON.parse(blockedData.pick):[];
 
-    if(!parts||!parts.length){list.innerHTML='<div class="empty" style="padding:20px">No hay participantes</div>';return;}
+    if(!parts||!parts.length){list.innerHTML='<div class="empty" style="padding:20px">No participants yet</div>';return;}
 
     list.innerHTML=parts.map(p=>{
       const isBlocked=blocked.includes(p.email||p.name);
@@ -1435,7 +1435,7 @@ async function initChat(){
   const locked=document.getElementById('chat-locked');
   if(CU&&!CB){form.style.display='flex';locked.style.display='none';}
   else{form.style.display='none';locked.style.display='block';
-    locked.innerHTML=CU?'&#128274; Tu cuenta est&aacute; bloqueada &mdash; no puedes escribir en el chat':'&#128274; Sign in to join the chat';}
+    locked.innerHTML=CU?'&#128274; Your account is blocked &mdash; you cannot write in the chat':'&#128274; Sign in to join the chat';}
   if(!_chatInited){await loadChatMsgs();_chatInited=true;}
   if(!_chatSub){
     _chatSub=db.channel('chat_messages_ch')
@@ -1686,7 +1686,7 @@ function getT3Map(src){
   _t3Cache=computeT3Map(src);_t3Src=src;return _t3Cache;
 }
 
-function phName(ph){return{'R32':'Round of 32','R16':'Octavos','QF':'Cuartos','SF':'Semifinales','3rd':'3rd Place','Final':'Final'}[ph]||ph;}
+function phName(ph){return{'R32':'Round of 32','R16':'Round of 16','QF':'Quarter Finals','SF':'Semi Finals','3rd':'3rd Place','Final':'Final'}[ph]||ph;}
 function matchNum(mid){const m=KO.find(x=>x.id===mid);if(!m)return 1;return KO.filter(x=>x.ph===m.ph).findIndex(x=>x.id===mid)+1;}
 
 function posLabel(key,src,picks){
@@ -2062,7 +2062,7 @@ function buildBracketInto(containerId, picks){
       <div class="bph-tag" style="background:linear-gradient(135deg,rgba(252,75,8,.12),rgba(252,75,8,.06));color:#fc4b08;border:1px solid rgba(252,75,8,.35);font-size:10px;padding:6px 10px">🏆 GRAN FINAL</div>
       ${bMatchEl(mF,'bfinal',picks)}
       ${champ?`<div class="bchamp-box">
-        <span style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280">Campe&oacute;n</span>
+        <span style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6b7280">Champion</span>
         ${bFlagEl(champCode,true)}
         <span style="font-size:14px;font-weight:700;color:#fc4b08">${champ}</span>
       </div>`:'<div style="text-align:center;padding:8px;font-size:10px;color:#9ca3af;font-style:italic">Rellena la final para ver el campe&oacute;n</div>'}
@@ -2074,7 +2074,7 @@ function buildBracketInto(containerId, picks){
 
   const PC={R32:'#3a4d6a',R16:'#7c3aed',QF:'#e35a00',SF:'#b45309'};
   const PC_arr=[PC.R32,'transparent',PC.R16,'transparent',PC.QF,'transparent',PC.SF,'transparent','#22c55e','transparent',PC.SF,'transparent',PC.QF,'transparent',PC.R16,'transparent',PC.R32];
-  const PL_arr=['Round of 32','','Octavos','','Cuartos','','Semis','','Final','','Semis','','Cuartos','','Octavos','','Round of 32'];
+  const PL_arr=['Round of 32','','Round of 16','','Quarter Finals','','Semis','','Final','','Semis','','Quarter Finals','','Round of 16','','Round of 32'];
 
   const cols=[
     bMatchCol(lR32,TOTAL,picks),bColSVG(8,'l',TOTAL),
@@ -2110,7 +2110,7 @@ function buildBracketInto(containerId, picks){
 function renderBracket(){
   const bc=document.getElementById('bcontent');
   const bu=document.getElementById('buser');
-  if(!CU){bc.innerHTML='<div class="empty">Accede para ver tu cuadro</div>';bu.textContent='';return;}
+  if(!CU){bc.innerHTML='<div class="empty">Sign in to see your bracket</div>';bu.textContent='';return;}
   bu.textContent='Predictions for '+CU;
   try{
     // Groups + thirds + bracket container
@@ -2128,7 +2128,7 @@ function renderBracket(){
     buildBracketInto('myBracketContainer',LP);
   }catch(e){
     console.error('renderBracket error:',e);
-    bc.innerHTML='<div class="empty" style="color:var(--red);padding:30px"><div style="font-size:24px;margin-bottom:8px">\u26a0\ufe0f</div>Error cargando el cuadro:<br/><code style="font-size:11px;color:var(--mt)">'+e.message+'</code></div>';
+    bc.innerHTML='<div class="empty" style="color:var(--red);padding:30px"><div style="font-size:24px;margin-bottom:8px">\u26a0\ufe0f</div>Error loading bracket:<br/><code style="font-size:11px;color:var(--mt)">'+e.message+'</code></div>';
   }
 }
 
