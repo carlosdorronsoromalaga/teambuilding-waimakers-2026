@@ -499,6 +499,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .pin-modal-actions .btn{flex:1}
 .pin-error{background:var(--redl);border:1px solid rgba(220,38,38,.2);border-radius:var(--r-sm);padding:8px 12px;font-size:12px;color:var(--red);text-align:center;margin-bottom:12px;display:none}
 
+.person-card-new{position:absolute;top:8px;right:8px;background:var(--or);color:#fff;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:2px 6px;line-height:1.4}
+.person-card-new-note{font-size:8px;color:var(--mt);text-align:center;margin-top:-4px;font-style:italic}
 /* ═══════════════════════════════
    PITCH BAR
 ═══════════════════════════════ */
@@ -993,7 +995,8 @@ const CONFIG = {
     // ── Row 6: Marketing & Learning ──
     {name:'Bas Prins',            title:'Marketing AI Specialist',       initials:'BP', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/v1771512522/Bas-Prins_gwbrm3.png'},
     {name:'Ian Strik',            title:'E-learning Expert',             initials:'IS', photo:'https://res.cloudinary.com/dlv5pbbj3/image/upload/v1771512516/Ian-Strik_upcb1t.png'},
-    {name:'Ties Löbker',    title:'AI Strategy Consultant',        initials:'TL'},
+    {name:'Ties Löbker',         title:'Manager',                       initials:'TL', photo:'https://media.licdn.com/dms/image/v2/D4E03AQHUF_A5AfAmBg/profile-displayphoto-scale_100_100/B4EZ2IptbOGQAc-/0/1776114129165?e=1782345600&v=beta&t=umdemo1BwKGMgrzsodVptDBFzPc7kcUOXHjcn1EeiaI', isNew:true},
+    {name:'Joost Tielemans',      title:'AI Associate',                  initials:'JT', photo:'https://media.licdn.com/dms/image/v2/D4E03AQF04xJzo5GXTQ/profile-displayphoto-scale_100_100/B4EZyZYnFfIEAg-/0/1772099893368?e=1782345600&v=beta&t=q7agIjknn9pHAaiR_nENGuen22QgpZXqYY4XQZVWLeY', isNew:true},
   ],};
 
 const db = supabase.createClient(CONFIG.supabase.url, CONFIG.supabase.key);
@@ -1035,10 +1038,14 @@ function renderPersonGrid(){
     const avatarStyle = p.photo
       ? `background-image:url('${p.photo}');background-size:cover;background-position:center top;color:transparent;font-size:0`
       : '';
+    const newBadge = p.isNew ? '<div class="person-card-new">NEW</div>' : '';
+    const newNote = p.isNew ? '<div class="person-card-new-note">not yet on waimakers.com</div>' : '';
     return `<div class="person-card${isTaken?' taken':''}" onclick="${isTaken?'':fn}">
+      ${newBadge}
       <div class="person-avatar" style="${avatarStyle}">${p.photo ? '' : `<span>${p.initials}</span>`}</div>
       <div class="person-name">${esc(p.name)}</div>
       <div class="person-title">${esc(p.title)}</div>
+      ${newNote}
       <div class="person-check">&#10003;</div>
     </div>`;
   }).join('');
