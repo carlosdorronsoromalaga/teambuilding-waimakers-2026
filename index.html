@@ -1038,14 +1038,10 @@ function renderPersonGrid(){
     const avatarStyle = p.photo
       ? `background-image:url('${p.photo}');background-size:cover;background-position:center top;color:transparent;font-size:0`
       : '';
-    const newBadge = p.isNew ? '<div class="person-card-new">NEW</div>' : '';
-    const newNote = p.isNew ? '<div class="person-card-new-note">not yet on waimakers.com</div>' : '';
     return `<div class="person-card${isTaken?' taken':''}" onclick="${isTaken?'':fn}">
-      ${newBadge}
       <div class="person-avatar" style="${avatarStyle}">${p.photo ? '' : `<span>${p.initials}</span>`}</div>
       <div class="person-name">${esc(p.name)}</div>
       <div class="person-title">${esc(p.title)}</div>
-      ${newNote}
       <div class="person-check">&#10003;</div>
     </div>`;
   }).join('');
