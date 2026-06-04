@@ -469,8 +469,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .person-card{background:var(--sf);border:1.5px solid var(--bd);border-radius:var(--r);padding:16px 14px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;box-shadow:var(--s1);position:relative;overflow:hidden}
 .person-card:hover{border-color:var(--or);transform:translateY(-2px);box-shadow:var(--s2)}
 .person-card.active{border-color:var(--or);background:var(--orl);box-shadow:0 0 0 3px rgba(249,115,22,.1)}
-.person-card.taken{opacity:.5;cursor:default}
-.person-card.taken:hover{transform:none;border-color:var(--bd);box-shadow:var(--s1)}
+.person-card.taken{border-color:rgba(22,163,74,.3);background:rgba(22,163,74,.03)}
+.person-card.taken:hover{border-color:var(--or);transform:translateY(-2px);box-shadow:var(--s2)}
 .person-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--or2));color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;display:flex;align-items:center;justify-content:center;letter-spacing:1px;box-shadow:0 2px 8px rgba(249,115,22,.3);flex-shrink:0;overflow:hidden;border:2.5px solid var(--bd);transition:border-color .2s}
 .person-avatar span{font-size:20px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:1px}
 .person-card:hover .person-avatar{border-color:var(--or);transform:scale(1.02)}
@@ -1072,7 +1072,7 @@ function renderPersonGrid(){
     const avatarStyle = p.photo
       ? `background-image:url('${p.photo}');background-size:cover;background-position:center top;color:transparent;font-size:0`
       : '';
-    return `<div class="person-card${isTaken?' taken':''}" onclick="${isTaken?'':fn}">
+    return `<div class="person-card${isTaken?' taken':''}" onclick="${fn}">
       <div class="person-avatar" style="${avatarStyle}">${p.photo ? '' : `<span>${p.initials}</span>`}</div>
       <div class="person-name">${esc(p.name)}</div>
       <div class="person-title">${esc(p.title)}</div>
