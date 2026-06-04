@@ -500,6 +500,19 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
 .pin-error{background:var(--redl);border:1px solid rgba(220,38,38,.2);border-radius:var(--r-sm);padding:8px 12px;font-size:12px;color:var(--red);text-align:center;margin-bottom:12px;display:none}
 
 /* ═══════════════════════════════
+   WELCOME BACK
+═══════════════════════════════ */
+.wb-card{background:var(--sf);border:1.5px solid var(--bd);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;box-shadow:var(--s2);max-width:320px;margin:0 auto}
+.wb-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--or),var(--or2));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;overflow:hidden;border:3px solid rgba(249,115,22,.2);box-shadow:0 4px 16px rgba(249,115,22,.15);flex-shrink:0}
+.wb-info{text-align:center}
+.wb-name{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--tx);letter-spacing:1px;line-height:1.1}
+.wb-title{font-size:11px;color:var(--mt);margin-top:3px}
+.wb-pin-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+.wb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--mt)}
+.wb-change{background:none;border:none;color:var(--mt);font-size:12px;cursor:pointer;text-decoration:underline;font-family:'Outfit',sans-serif;transition:color .15s;padding:0}
+.wb-change:hover{color:var(--red)}
+
+/* ═══════════════════════════════
    PITCH BAR
 ═══════════════════════════════ */
 .pitch-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#0f172a,#1a2a4a);border-top:2px solid var(--or);padding:10px 20px;display:none;align-items:center;justify-content:center;gap:16px;z-index:200;flex-wrap:wrap;box-shadow:0 -4px 20px rgba(0,0,0,.18)}
@@ -591,6 +604,29 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--tx);min-he
     <div class="who-title">&#128100; Who are you?</div>
     <div class="person-grid" id="person-grid">
       <div class="empty" style="padding:20px;grid-column:1/-1">Loading team...</div>
+    </div>
+  </div>
+
+  <!-- WELCOME BACK (shown when localStorage has saved session) -->
+  <div id="welcome-back" style="display:none">
+    <div class="wb-card">
+      <div class="wb-avatar" id="wb-avatar"></div>
+      <div class="wb-info">
+        <div class="wb-name" id="wb-name"></div>
+        <div class="wb-title" id="wb-role"></div>
+      </div>
+      <div class="wb-pin-wrap">
+        <div class="wb-label">Enter your PIN to continue</div>
+        <div class="pin-input-wrap">
+          <input class="pin-digit" id="wb-pd0" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off"/>
+          <input class="pin-digit" id="wb-pd1" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off"/>
+          <input class="pin-digit" id="wb-pd2" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off"/>
+          <input class="pin-digit" id="wb-pd3" type="password" inputmode="numeric" maxlength="1" pattern="[0-9]" autocomplete="off"/>
+        </div>
+        <div id="wb-error" class="pin-error" style="display:none">Incorrect PIN — try again</div>
+        <button class="btn" id="wb-btn" onclick="welcomeBackConfirm()">&#128073; Enter</button>
+      </div>
+      <button class="wb-change" onclick="clearSavedSession()">Not you?</button>
     </div>
   </div>
 
@@ -1187,6 +1223,7 @@ function applyConfig(){
     if(cont)cont.style.paddingBottom='130px';
   }
   renderPersonGrid();
+  checkSavedSession();
 }
 
 // ── Color helpers ────────────────────────────────────────────────
@@ -1822,6 +1859,7 @@ async function join(){
     }
     await loadUP(name);CU=name;CE=email;
     CB=await isUserBlocked(email);
+    localStorage.setItem('wm_session',JSON.stringify({name,email}));
     document.getElementById('ni').value='';document.getElementById('ei').value='';document.getElementById('pi').value='';
     updSbar();updStats();
     if(CB){toast('Welcome, '+name+'. Your prediction is locked — read only.','inf');}
@@ -1830,7 +1868,64 @@ async function join(){
   }catch(e){console.error(e);toast('Error: '+e.message,'err');}
   btn.disabled=false;btn.textContent='Entrar';
 }
-function logout(){CU=null;CE=null;CB=false;LP={};updSbar();}
+function logout(){
+  CU=null;CE=null;CB=false;LP={};
+  localStorage.removeItem('wm_session');
+  updSbar();
+  const wb=document.getElementById('welcome-back');if(wb)wb.style.display='none';
+  const ws=document.getElementById('who-section');if(ws)ws.style.display='';
+  renderPersonGrid();sv('home');
+}
+
+// ── SESSION PERSISTENCE ────────────────────────────────────────────
+function checkSavedSession(){
+  if(CU)return;
+  let saved;try{saved=JSON.parse(localStorage.getItem('wm_session')||'null');}catch(e){return;}
+  if(!saved||!saved.name||!saved.email)return;
+  const person=(CONFIG.team||[]).find(p=>p.name===saved.name);
+  const wb=document.getElementById('welcome-back');
+  const ws=document.getElementById('who-section');
+  if(!wb)return;
+  const av=document.getElementById('wb-avatar');
+  if(av){
+    if(person?.photo){av.style.backgroundImage=`url('${person.photo}')`;av.style.backgroundSize='cover';av.style.backgroundPosition='center top';av.style.color='transparent';av.style.fontSize='0';av.textContent='';}
+    else{av.style.backgroundImage='';av.textContent=person?.initials||saved.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
+  }
+  const wn=document.getElementById('wb-name');if(wn)wn.textContent=saved.name;
+  const wr=document.getElementById('wb-role');if(wr)wr.textContent=person?.title||'';
+  [0,1,2,3].forEach(i=>{
+    const d=document.getElementById('wb-pd'+i);if(!d)return;
+    d.value='';d.classList.remove('filled');
+    d.oninput=()=>{d.classList.toggle('filled',d.value.length>0);if(d.value.length===1&&i<3)document.getElementById('wb-pd'+(i+1))?.focus();if(i===3&&d.value.length===1)welcomeBackConfirm();};
+    d.onkeydown=(e)=>{if(e.key==='Backspace'&&!d.value&&i>0)document.getElementById('wb-pd'+(i-1))?.focus();if(e.key==='Enter')welcomeBackConfirm();};
+  });
+  wb.dataset.name=saved.name;wb.dataset.email=saved.email;
+  if(ws)ws.style.display='none';
+  wb.style.display='block';
+  setTimeout(()=>document.getElementById('wb-pd0')?.focus(),150);
+}
+
+async function welcomeBackConfirm(){
+  const wb=document.getElementById('welcome-back');if(!wb)return;
+  const name=wb.dataset.name,email=wb.dataset.email;
+  const pin=[0,1,2,3].map(i=>document.getElementById('wb-pd'+i)?.value||'').join('');
+  if(pin.length<4)return;
+  const btn=document.getElementById('wb-btn'),errEl=document.getElementById('wb-error');
+  btn.disabled=true;btn.textContent='...';errEl.style.display='none';
+  const ni=document.getElementById('ni');if(ni)ni.value=name;
+  const ei=document.getElementById('ei');if(ei)ei.value=email;
+  const pi=document.getElementById('pi');if(pi)pi.value=pin;
+  await join();
+  if(CU){wb.style.display='none';}
+  else{errEl.style.display='block';[0,1,2,3].forEach(i=>{const d=document.getElementById('wb-pd'+i);if(d){d.value='';d.classList.remove('filled');}});document.getElementById('wb-pd0')?.focus();btn.disabled=false;btn.textContent='→ Enter';}
+}
+
+function clearSavedSession(){
+  localStorage.removeItem('wm_session');
+  const wb=document.getElementById('welcome-back');if(wb)wb.style.display='none';
+  const ws=document.getElementById('who-section');if(ws)ws.style.display='';
+  renderPersonGrid();
+}
 function updSbar(){const b=document.getElementById('sbar');if(CU){b.style.display='flex';document.getElementById('sname').textContent=CU;}else b.style.display='none';}
 function updStats(){document.getElementById('sp').textContent=Object.keys(PARTS).length;document.getElementById('sr').textContent=Object.keys(RES).filter(k=>+k<=104).length+'/104';}
 
